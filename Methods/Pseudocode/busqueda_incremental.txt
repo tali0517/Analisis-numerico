@@ -1,0 +1,20 @@
+Input: Function f, range xin, variable delta delta, Total of iteration Nmax
+Output: graph of the function with the solution
+if delta <= 0 then   # Delta value cannot be negative
+    break;      
+xant <- xin
+fant <- f(xant)
+xact <- xant + Delta
+fact <- f(xact)
+
+for i from 1 to Nmax Do
+    if (fant * fact) < 0 then
+        break
+    else 
+        xant <- xact
+        fant <- fact
+        xact <- xant + Delta
+        fact <- f(xact)
+    
+a = xant
+b = xact
