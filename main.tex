@@ -1,0 +1,372 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{placeins}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{\textbf{Final proyect} \\
+        First delivery}
+\author{Santiago Alzate Cardona\\
+        Alejandro Castaño.\\
+        Esteban Sierra Patiño.\\
+        Sebatian Urrego.}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We made some of the mathematical methods for the numerical analysis project, we created the pseudocode, also two formal codes in python (main) and MathLab, that represents some of the uses you can take in those methods.
+\end{abstract}
+
+\section{Introduction}
+
+Due to the fact that in the final project we will have to present many methods and have an application development in this first delivery we will deliver several methods in implemented code and its respective pseudo-code with their tests to show an advance phase and not to be left behind in later deliveries, as we rather show what we are capable of developing from the scratch.
+
+In this document we only show the methods with their code and tests, however you can find all the files in the following \href{https://github.com/tali0517/Analisis-numerico}{Github}.
+
+\section{Pseudocodes}
+ In this parts we are going to show the pseudocodes for all the methods we are planning on presenting at the end of the project, as is well known, this pseudocodes can be implemented in any language, but for the purpose of this project will only be presented in Python and Matlab 
+
+\subsection{Incremental Search}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_incSearch.png}
+\caption{\label{fig:py_bisc}Incremental search pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Bisection}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_bisection.png}
+\caption{\label{fig:py_bisc}Bisection method pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{False rule}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_falseRule.png}
+\caption{\label{fig:py_bisc}False Rule method pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Fixed point}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_fixedPoint.png}
+\caption{\label{fig:py_bisc}Fixed Point method pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Newton}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_newton.png}
+\caption{\label{fig:py_bisc}Newton method pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Secant}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_secant.png}
+\caption{\label{fig:py_bisc}Secant method pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Multiples roots}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_rootmlt.png}
+\caption{\label{fig:py_bisc}IMultiple roots method pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Simple Gaussian Elimination}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_gausspl.png}
+\caption{\label{fig:py_bisc}Simple gaussian elimination pseudocode.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Gaussian elimination with partial pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_gausspar.png}
+\caption{\label{fig:py_bisc}Pseudocode of the first part of a gaussian elimination with partial pivot.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_gausspar2.png}
+\caption{\label{fig:py_bisc}Pseudocode of the second part of a gaussian elimination with partial pivot.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Gaussian elimination with total pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_gausstot1.png}
+\caption{\label{fig:py_bisc}Pseudocode of the first part of a gaussian elimination with total pivot.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_gausstot2.png}
+\caption{\label{fig:py_bisc}Psudocode of the second part of a gaussian elimination with total pivot.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/pseudocodes/pse_gausstot3.png}
+\caption{\label{fig:py_bisc}Pseudocode of the third part of a gaussian elimination with total pivot.}
+\end{figure}
+\FloatBarrier
+
+\section{Tests}
+
+\subsection{Python}
+
+\subsubsection{Incremental Search}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_incSearch.png}
+\caption{\label{fig:py_bisc}Code of incremental search method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_incremental.png}
+\caption{\label{fig:py_bisc}Incremental search test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Bisection}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/python_bisection.png}
+\caption{\label{fig:py_bisc}Code of bisection method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_bisection.png}
+\caption{\label{fig:py_test_bisc}Bisection test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{False rule}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_falseRule.png}
+\caption{\label{fig:py_falseRule}Code of false rule in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_falseRule.png}
+\caption{\label{fig:py_falseRule}False rule test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Fixed point}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_fixedPoint.png}
+\caption{\label{fig:py_fixedPoint}Code of the fixed point method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.6\textwidth]{images/tests/py_test_fixedPoint.png}
+\caption{\label{fig:py_fixedPoint}Fixed point test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Newton}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_newton.png}
+\caption{\label{fig:py_newton}Code of the newton method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_newton.png}
+\caption{\label{fig:py_newton}Newton method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Secant}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_secant.png}
+\caption{\label{fig:py_secant}Code of the secant method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_secant.png}
+\caption{\label{fig:py_gausstot}Code of a simple gaussian elimination method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Multiple roots}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_rootmlt.png}
+\caption{\label{fig:py_rootmlt}Code of the multiple roots method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_rootmlt.png}
+\caption{\label{fig:py_rootmlt}Multiple roots method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Simple Gaussian elimination}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_gausspl.png}
+\caption{\label{fig:py_gausspl}Code of a simple gaussian elimination method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_gausspl.png}
+\caption{\label{fig:py_gausspl}Simple gaussian elimination test}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Gaussian elimination with partial pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/python_gausspar.png}
+\caption{\label{fig:py_gausspar}Code of gaussian elimination with partial pivot method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_gausspar.png}
+\caption{\label{fig:py_gausspar}Gaussian elimination with partial pivot test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Gaussian elimination with total pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/py_gausstot.png}
+\caption{\label{fig:py_gausstot}Code of gaussian elimination with total pivot method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_gausstot.png}
+\caption{\label{fig:py_gausstot}Gaussian elimination with total test.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Matlab}
+
+\subsubsection{Incremental Search}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_incSearch.png}
+\caption{\label{fig:py_gausstot}Code of incremental search method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Bisection}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_bisection.png}
+\caption{\label{fig:py_gausstot}Code of bisection method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{False rule}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_falsePo.png}
+\caption{\label{fig:py_gausstot}Code of the false rule method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Fixed point}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_fixedPoint.png}
+\caption{\label{fig:py_gausstot}Code of fixed point method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Newton}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_newton.png}
+\caption{\label{fig:py_gausstot}Code of the newton method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Secant}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_secant.png}
+\caption{\label{fig:py_gausstot}Code of the secant method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Multiple roots}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_rootmlt.png}
+\caption{\label{fig:py_gausstot}Code of the multiple roots method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Simple Gaussian elimination}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_gausspl.png}
+\caption{\label{fig:py_gausstot}Code of a simple gaussian elimination method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Gaussian elimination with partial pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_gausspar.png}
+\caption{\label{fig:py_gausstot}Code of gaussian elimination with partial pivot method in matlab.}
+\end{figure}
+\FloatBarrier
+
+
+\subsubsection{Gaussian elimination with total pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_gausstot1.png}
+\caption{\label{fig:py_gausstot}First part of the code of gaussian elimination with total pivot method in matlab.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/mat_gausstot2.png}
+\caption{\label{fig:py_gausstot}Second part of the code of gaussian elimination with total pivot method in matlab.}
+\end{figure}
+\FloatBarrier
+
+\end{document}
