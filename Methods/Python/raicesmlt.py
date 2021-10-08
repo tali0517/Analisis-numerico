@@ -11,7 +11,8 @@ def raicesmlt(f, df, d2f, x0, Nmax, tol):
     i = 0
 
     while i < Nmax and E > tol:
-        print("X{i} =".format(i=i), xant,"|","f(x{i}) =".format(i=i), fant,"|","Error =", E)
+        #print("X{i} =".format(i=i), xant,"|","f(x{i}) =".format(i=i), fant,"|","Error =", E)
+        print("X{i} = {xi:.16f} | f(x{i}) = {fant:.16f}| Error = {E:.1E}".format(i=i, xi=xant, fant=fant, E=E))
         xact = xant - fant*df(xant)/((df(xant)**2 - fant*d2f(xant)))
         fact = f(xact)
         E = abs(xact-xant)
@@ -22,6 +23,7 @@ def raicesmlt(f, df, d2f, x0, Nmax, tol):
     if i == Nmax or E > tol:
         print("El metodo no converge con los datos dados")
     else:
+        print("X{i} = {xi:.16f} | f(x{i}) = {fant:.16f}| Error = {E:.1E}".format(i=i, xi=xant, fant=fant, E=E))
         print("El metodo converge a x:", xact, "en la iteracion", i)
 
 def main():

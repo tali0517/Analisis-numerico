@@ -11,13 +11,16 @@ def secante(func, x0, x1, Nmax, tol):
     f0 = f(x0)
     f1 = f(x1)
     E = 1000
-    i = 1
+    print("X{i} = {x0:.16f} | f(x{i}) = {f0:.16f} |".format(i=0, x0=x0, f0=f0))
+    print("X{i} = {x0:.16f} | f(x{i}) = {f0:.16f} |".format(i=1, x0=x1, f0=f1))
+    i = 2
 
     while i < Nmax and E > tol:
         xact = x1 -f1*((x1-x0)/(f1-f0))
         fact = f(xact)
-        print("X{i} =".format(i=i), xact,"|","f(x{i}) =".format(i=i), fact,"|","Error =", E)
         E = abs(xact-x1)
+        print("X{i} = {xact:.16f} | f(x{i}) = {fact:.16f} | E{i} = {E:.1E} |".format(i=i, xact=xact, fact=fact, E=E))
+        #print("X{i} =".format(i=i), xact,"|","f(x{i}) =".format(i=i), fact,"|","Error =", E)
         x0 = x1
         f0 = f1
         x1 = xact
@@ -27,8 +30,7 @@ def secante(func, x0, x1, Nmax, tol):
     if i == Nmax or E > tol:
         print("El metodo no converge con los datos dados")
     else:
-        print("X{i} =".format(i=i), xact,"|","f(x{i}) =".format(i=i), fact,"|","Error =", E)
-        print("El metodo converge a x:", xact, "en la iteracion", i)
+        print("El metodo converge a x:", xact, "en la iteracion", i-1)
 
 def main():
     x = Symbol('x')
