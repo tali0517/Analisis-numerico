@@ -14,7 +14,7 @@ def busqueda(func, xin, delta, Nmax):
     
     i = 1 
     for i in range(1, Nmax):
-        print(i, "- (a =",xant,"b =",xact,")")
+        print(i, "- [a =",xant,"b =",xact,"]")
         if (fant * fact) < 0:
             break
         else:
@@ -25,7 +25,6 @@ def busqueda(func, xin, delta, Nmax):
 
     a = xant
     b = xact
-    count = i
 
 
 def funcion(x):
