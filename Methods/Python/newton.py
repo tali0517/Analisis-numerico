@@ -10,8 +10,10 @@ def newton(f, df, x0, Nmax, tol):
     E = 1000
     i = 0
 
+    print("|{i:^3}|{xi:^20}|{fxi:^20}|{E:^10}|".format(i="i",xi="xm",fxi="f(xi)",E="E"))
     while i < Nmax and E > tol:
-        print("X{i} =".format(i=i), xant,"|","f(x{i}) =".format(i=i), fant,"|","Error =", E)
+        print("|{i:3g}| {xi:.16f} | {fxi:.16f} | {E:.1E} |".format(i=i, xi=xant, fxi=fant, E=E))
+        #print("X{i} =".format(i=i), xant,"|","f(x{i}) =".format(i=i), fant,"|","Error =", E)
         xact = xant - (fant/dfant)
         fact = f(xact)
         dfact = df(xact)
@@ -24,7 +26,8 @@ def newton(f, df, x0, Nmax, tol):
     if i == Nmax or E > tol:
         print("El metodo no converge con los datos dados")
     else:
-        print("X{i} =".format(i=i), xact,"|","f(x{i}) =".format(i=i), fact,"|","Error =", E)
+        print("|{i:3g}| {xi:.16f} | {fxi:.16f} | {E:.1E} |".format(i=i, xi=xant, fxi=fant, E=E))
+        #print("X{i} =".format(i=i), xact,"|","f(x{i}) =".format(i=i), fact,"|","Error =", E)
         print("El metodo converge a x:", xact, "en la iteracion:", i)
 
     return xact
