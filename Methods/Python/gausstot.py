@@ -8,11 +8,12 @@ def gausstot(A, b):
     n = A.shape[0]
     M = M.astype('float')
     stack = []
-    etapa = 1
+    etapa = 0
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
         print("Etapa", etapa)
         print(M)
+        print()
         etapa += 1
         submatrix = abs(M[i:,i:n])
         #print(submatrix)
@@ -21,21 +22,19 @@ def gausstot(A, b):
         row = row[0]
         col = col[0]
         #print("Row:",row,"Col:",col)
-        change = False
         # Cambio de fila
         if row+i != i:
             M[[row+i, i],i:] = M[[i, row+i],i:]
-            change = True
+            print("Cambio de fila")
+            print(M)
+            print()
         # Cambio de columna
         if col+i != i:
             M[:,[i, col+i]] = M[:,[col+i, i]]
             stack = np.append(stack, [i, col+i])  # Agregar cambio de columna al stack
-            change = True
-        
-        if change:
-            print("Etapa", etapa)
+            print("Cambio de columna")
             print(M)
-            etapa += 1
+            print()
 
         # Por cada columna iterar por cada fila debajo de la diagonal
         for j in range(i+1, n):
@@ -44,10 +43,11 @@ def gausstot(A, b):
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
     print("Etapa", etapa)
-    print(M)
+    print(M, '\n')
     stack = np.array(stack, dtype=int).reshape(-1,2)
     # Sustitucion regresiva
     x = sustreg(M)
+    print("Despues de aplicar sustitucion regresiva\n")
     print("X antes del cambio de columnas:")
     print(x)
     x = cambioCols(x, stack)

@@ -11,7 +11,7 @@ def gausspl(A, b):
     M = M.astype('float')
     #print(M.dtype)
 
-    etapa = 1
+    etapa = 0
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
         print("Etapa", etapa)
@@ -40,9 +40,10 @@ def gausspl(A, b):
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
     print("Etapa", etapa)
-    print(M)
+    print(M, '\n')
     # Sustitucion regresiva
     x = sustreg(M)
+    print("Despues de aplicar sustitucion regresiva\n")
     print("X:")
     print(x)
     return x

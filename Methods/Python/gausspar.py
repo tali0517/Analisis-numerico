@@ -11,11 +11,12 @@ def gausspar(A, b):
     M = M.astype('float')
     #print(M.dtype)
 
-    etapa = 1
+    etapa = 0
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
         print("Etapa", etapa)
         print(M)
+        print()
         etapa += 1
         col = np.abs(M[i+1:, i])
         aux0 = np.max(col) # Maximo en columna
@@ -26,9 +27,9 @@ def gausspar(A, b):
             M[[i, i+aux1+1],i:] = M[[i+aux1+1, i],i:] # Asi se intercambian filas en python
             #M[i+aux1+1][i:] = M[i][i:]
             #M[i][i:]=aux2
-            print("Etapa", etapa)
+            print("Cambio de fila")
             print(M)
-            etapa += 1
+            print()
         # Por cada columna iterar por cada fila debajo de la diagonal
         for j in range(i+1, n):
             if M[j][i] != 0:
@@ -36,9 +37,10 @@ def gausspar(A, b):
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
     print("Etapa", etapa)
-    print(M)
+    print(M, '\n')
     # Sustitucion regresiva
     x = sustreg(M)
+    print("Despues de aplicar sustitucion regresiva\n")
     print("X:")
     print(x)
     return x
