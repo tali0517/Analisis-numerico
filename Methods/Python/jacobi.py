@@ -15,8 +15,8 @@ def gseidel(A, b, x0, tol, Nmax):
     print("L\n",L)
     print("U\n",U)
     
-    T = np.linalg.inv(D-L).dot(U)
-    C = np.linalg.inv(D-L).dot(b)
+    T = np.linalg.inv(D).dot(L+U)
+    C = np.linalg.inv(D).dot(b)
     print("T\n",T)
     print("C\n",C)
     xant = x0
