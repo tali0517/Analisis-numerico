@@ -11,14 +11,14 @@ def gseidel(A, b, x0, tol, Nmax):
     D = np.diag(np.diag(A))
     L = -np.tril(A)+D
     U = -np.triu(A)+D
-    print("D\n",D)
-    print("L\n",L)
-    print("U\n",U)
+    #print("D\n",D)
+    #print("L\n",L)
+    #print("U\n",U)
     
     T = np.linalg.inv(D-L).dot(U)
     C = np.linalg.inv(D-L).dot(b)
-    print("T\n",T)
-    print("C\n",C)
+    #print("T\n",T)
+    #print("C\n",C)
     xant = x0
     E = 1000
     cont = 0
@@ -32,6 +32,7 @@ def gseidel(A, b, x0, tol, Nmax):
         cont += 1
 
     if E>tol or cont == Nmax:
+        print("{i} | X{i} = {xant} | E = {Err:.1E}".format(i=cont, xant=xant, Err=E))
         print("This method can not get solution to the matrix")
     else:
         print("{i} | X{i} = {xant} | E = {Err:.1E}".format(i=cont, xant=xant, Err=E))
@@ -46,10 +47,10 @@ def main():
     #             [14, 5, -2, 3]))
     #b = np.array([1, 1, 1, 1])
     #A = np.random.rand(3,3)
-    A = np.array(([8, 3, 5],
-                [-2, 7, 3],
-                [4, -5, 18]))
-    b = np.array([21,7,42])
+    A = np.array(([9, 1, 2],
+                [1, 6, 5],
+                [2, 5, 6]))
+    b = np.array([1,1,1])
     #A = np.array(([0, 0, 1],
     #            [4, 2, 1],
     #            [0.81, 0.9, 1]))
