@@ -3,7 +3,7 @@
 import numpy as np
 from sustreg import sustreg
 
-def jacobi(A, b, x0, w, tol, Nmax):
+def sor(A, b, x0, w, tol, Nmax):
     det = np.linalg.det(A) # Determinant of matrix
     if det == 0:
         print("Determinant of matrix is 0")
@@ -56,7 +56,7 @@ def main():
     #            [0.81, 0.9, 1]))
     #b = np.array([0.5, 1, 0])
     x0 = np.array([0, 0, 0])
-    jacobi(A, b, x0, 1.2, 1e-7, 100)
+    sor(A, b, x0, 1.2, 1e-7, 100)
 
 
 if __name__ == '__main__':
