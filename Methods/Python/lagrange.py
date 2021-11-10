@@ -5,6 +5,12 @@ def lagrange(X, Y):
     n = X.size
     L = np.zeros((n, n)) # (shape)
 
+    etapa = 0
+    print("Etapa:", etapa)
+    print("L:\n", L)
+    print()
+    etapa +=1
+
     for i in range(n):
         aux0 = np.setdiff1d(X, X[i])
         aux = [1, -aux0[0]]
@@ -12,18 +18,27 @@ def lagrange(X, Y):
             aux = np.convolve(aux, [1, -aux0[j]])
         L[i,:] = aux / np.polyval(aux, X[i])
 
+        print("Etapa:", etapa)
+        print("L:\n", L)
+        print()
+        etapa +=1
+
     coef = Y.dot(L)
+    print("Etapa:", etapa)
+    print("L:\n", L)
+    print("Coef:\n", coef)
     return L, coef
 
 def main():
     np.set_printoptions(suppress=True)
-    X = np.array([1, 2, 3, 4, 5])
+    #X = np.array([1, 2, 3, 4, 5])
+    #
+    #Y = np.array([1, 2, 3, 4, 5])
+    X = np.array([-1, 0, 3, 4])
     
-    Y = np.array([1, 2, 3, 4, 5])
+    Y = np.array([15.5, 3, 8, 1])
     L, coef = lagrange(X, Y)
 
-    print("L:\n", L)
-    print("Coef:\n", coef)
 
 if __name__=="__main__":
     main()

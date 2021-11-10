@@ -10,13 +10,18 @@ def vandermonde(X, Y):
     for i in range(n):
         A[:,i] = np.matrix.transpose(np.power(X, (n-i-1)))
 
+    print("A:\n", A)
     coef = gausstot(A, np.matrix.transpose(Y))
+    print("Coef:\n", coef)
     return coef
 
 def main():
-    X = np.array([1, 2, 3, 4, 5])
+    #X = np.array([0, 2, 3, 4, 5, 6, 7])
+    #
+    #Y = np.array([1.1247, -0.8540, 0.5864, 1, -0.9062, 0.9081, -0.2700])
+    X = np.array([-1, 0, 3, 4])
     
-    Y = np.array([1, 2, 3, 4, 5])
+    Y = np.array([15.5, 3, 8, 1])
     coef = vandermonde(X, Y)
 
 if __name__=="__main__":

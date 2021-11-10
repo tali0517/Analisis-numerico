@@ -30,10 +30,15 @@ def cholesky(A, b):
     return x
 
 def main():
-    A = np.array(([3, 1, 1],
-                [2, 3, 1],
-                [4, -3, 1]))
-    b = np.array([0.5, 1, 0])
+    #A = np.array(([3, 1, 1],
+    #            [2, 3, 1],
+    #            [4, -3, 1]))
+    #b = np.array([0.5, 1, 0])
+    A = np.array(([4, -1, 0, 3],
+                  [1, 15.5, 3, 8],
+                  [0, -1.3, -4, 1.1],
+                  [14, 5, -2, 30]))
+    b = np.array([1, 1, 1, 1])
 
     x = cholesky(A, b)
     print("X:\n", x)

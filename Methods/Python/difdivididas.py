@@ -5,23 +5,39 @@ def difdivididas(X, Y):
     n = X.size
     D = np.zeros((n, n)) # (shape)
     X = np.matrix.transpose(X)
+    etapa = 0
+    print("Etapa:", etapa)
+    print(D)
+    print()
+    etapa += 1
 
     D[:,0] = np.matrix.transpose(Y)
+    print("Etapa:", etapa)
+    print(D)
+    print()
+    etapa += 1
     for i in range(1, n):
         aux0 = D[i-1:n, i-1]
         aux = np.diff(aux0)
         aux2 = X[i:n] - X[0:n-i]
         D[i:n, i] = np.divide(aux, aux2)
+        print("Etapa:", etapa)
+        print(D)
+        print()
+        etapa += 1
 
     coef = np.diag(D)
     return coef
 
 def main():
-    X = np.array([1, 2, 3, 4, 5, 6, 7])
+    #X = np.array([0, 2, 3, 4, 5, 6, 7])
+    #
+    #Y = np.array([1.1247, -0.8540, 0.5864, 1, -0.9062, 0.9081, -0.2700])
+    X = np.array([-1, 0, 3, 4])
     
-    Y = np.array([3, 54, 2, -2, 0.2, -1, 0])
+    Y = np.array([15.5, 3, 8, 1])
     coef = difdivididas(X, Y)
-    print(coef)
+    print("Coef:\n", coef)
 
 if __name__=="__main__":
     main()
