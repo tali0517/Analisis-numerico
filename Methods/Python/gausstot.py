@@ -65,16 +65,18 @@ def cambioCols(x, stack):
 
 
 def main():
-    #A = np.array(([1,2,3], [4,4,6], [7,8,9]), dtype=float)
-    #b = np.array([4, 9,9])
     #size = 4
     #A = np.random.rand(size, size)
     #b = np.random.rand(size)
-    A = np.array(([2, -1, 0, 3], 
-                 [1, 0.5, 3, 8], 
-                 [0, 13, -2, 11], 
-                 [14, 5, -2, 3]))
-    b = np.array([1, 1, 1, 1])
+    #A = np.array(([2, -1, 0, 3], 
+    #             [1, 0.5, 3, 8], 
+    #             [0, 13, -2, 11], 
+    #             [14, 5, -2, 3]))
+    #b = np.array([1, 1, 1, 1])
+    A = np.array(([0, 0, 1],
+                [4, 2, 1],
+                [0.81, 0.9, 1]))
+    b = np.array([0.5, 1, 0])
     gausstot(A, b)
 
 
