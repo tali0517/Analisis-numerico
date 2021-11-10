@@ -1,0 +1,238 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{placeins}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{\textbf{Final proyect} \\
+        Second delivery}
+\author{Santiago Alzate Cardona\\
+        Alejandro Castaño.\\
+        Esteban Sierra Patiño.\\
+        Sebatian Urrego.}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We made some of the mathematical methods for the numerical analysis project, we created the pseudocode, also two formal codes in python (main) and MathLab, that represents some of the uses you can take in those methods.
+\end{abstract}
+
+\section{Introduction}
+
+Due to the fact that in the final project we will have to present many methods and have an application development in this first delivery we will deliver several methods in implemented code and its respective pseudo-code with their tests to show an advance phase and not to be left behind in later deliveries, as we rather show what we are capable of developing from the scratch.
+
+In this document we only show the methods with their code and tests, however you can find all the files in the following \href{https://github.com/tali0517/Analisis-numerico}{Github}.
+
+\section{Tests}
+
+\subsection{Python}
+
+\subsubsection{Simple LU}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_lusimpl.png}
+\caption{\label{fig:py_bisc}Code of a simple LU method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_lusimpl.png}
+\caption{\label{fig:py_bisc}Simple LU test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{LU with partial pivot}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_lupar.png}
+\caption{\label{fig:py_bisc}Code of a partial LU method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_lupar.png}
+\caption{\label{fig:py_test_bisc}Partial LU test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Crout}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_crout.png}
+\caption{\label{fig:py_falseRule}Code of crout method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_crout.png}
+\caption{\label{fig:py_falseRule}Crout method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Doolittle}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_doolittle.png}
+\caption{\label{fig:py_fixedPoint}Code of doolittle method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.6\textwidth]{images/tests/py_test_doolittle.png}
+\caption{\label{fig:py_fixedPoint}Doolittle method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Cholesky}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_cholesky.png}
+\caption{\label{fig:py_newton}Code of the Cholesky method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_cholesky.png}
+\caption{\label{fig:py_newton}Cholesky method test (Can not handle negative roots yet).}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Jacobi}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_jacobi.png}
+\caption{\label{fig:py_secant}Code of the Jacobi method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_jacobi.png}
+\caption{\label{fig:py_gausstot}Jacobi method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Gauss-Seidel}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_gseidel.png}
+\caption{\label{fig:py_rootmlt}Code of the Gauss-Seidel method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_gseidel.png}
+\caption{\label{fig:py_rootmlt}Gauss-Seidel method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{SOR}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_sor.png}
+\caption{\label{fig:py_gausspl}Code of the SOR method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_sor.png}
+\caption{\label{fig:py_gausspl}SOR method test}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Vandermonde}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_vandermonde.png}
+\caption{\label{fig:py_gausspar}Code of vandermonde method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_vandermonde.png}
+\caption{\label{fig:py_gausspar}Vandermonde method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Newton}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_difdivididas.png}
+\caption{\label{fig:py_gausstot}Code of the Newton method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_difdivididas.png}
+\caption{\label{fig:py_gausstot}Newton method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Lagrange}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_lagrange.png}
+\caption{\label{fig:py_gausspar}Code of the lagrange method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_lagrange.png}
+\caption{\label{fig:py_gausspar}Lagrange method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Line plotter}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_trazlin.png}
+\caption{\label{fig:py_gausspar}Code of Line plotter method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_trazlin1.png}
+\caption{\label{fig:py_gausspar}First image of the line plotter method test.}
+\end{figure}
+\FloatBarrier
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_trazlin2.png}
+\caption{\label{fig:py_gausspar}Second image of the line plotter method test.}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Cuadratic plotter}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/code/py_trazcuad.png}
+\caption{\label{fig:py_gausspar}Code of a cuadratic plotter method in python.}
+\end{figure}
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_trazcuad1.png}
+\caption{\label{fig:py_gausspar}First image of a cuadratic plotter method test.}
+\end{figure}
+\FloatBarrier
+\FloatBarrier
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.7\textwidth]{images/tests/py_test_trazcuad2.png}
+\caption{\label{fig:py_gausspar}Second image of a cuadratic plotter method test.}
+\end{figure}
+\FloatBarrier
+
+\end{document}
