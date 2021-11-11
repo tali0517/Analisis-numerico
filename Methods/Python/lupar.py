@@ -14,12 +14,12 @@ def lupar(A, b):
 
     stack = []
     etapa = 0
+    print("Etapa", etapa)
+    print(M)
+    print()
+    etapa += 1
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
-        print("Etapa", etapa)
-        print(M)
-        print()
-        etapa += 1
         col = np.abs(M[i+1:, i])
         aux0 = np.max(col) # Maximo en columna
         aux1 = np.argmax(col) # Indice subcolumna
@@ -42,10 +42,16 @@ def lupar(A, b):
         U[i, i:n] = M[i, i:n]
         U[i+1, i+1:n] = M[i+1, i+1:n]
 
+        print("Etapa", etapa)
+        print("M:\n", M)
+        print("L:\n", L)
+        print("U:\n", U)
+        print("P:\n", P)
+        print()
+        etapa += 1
+
     U[n-1][n-1] = M[n-1][n-1]
 
-    print("Etapa", etapa)
-    print(M, '\n')
     stack = np.array(stack, dtype=int).reshape(-1,2)
     # Sustitucion regresiva
     #print("Despues de aplicar sustitucion regresiva\n")

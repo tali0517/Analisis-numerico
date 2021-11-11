@@ -10,8 +10,7 @@ def crout(A, b):
     U = np.eye(n)
     etapa = 0
     print("Etapa:", etapa)
-    print("L:\n", L)
-    print("U:\n", U)
+    print("A:\n", A)
     print()
     etapa +=1
 

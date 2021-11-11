@@ -42,6 +42,7 @@ def cholesky(A, b):
     return x
 
 def main():
+    np.set_printoptions(precision=3, suppress=True)
     #A = np.array(([3, 1, 1],
     #            [2, 3, 1],
     #            [4, -3, 1]))

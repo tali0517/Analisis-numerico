@@ -12,12 +12,12 @@ def lusimpl(A, b):
     M = M.astype('float')
     stack = []
     etapa = 0
+    print("Etapa", etapa)
+    print("M:\n", M)
+    print()
+    etapa += 1
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
-        print("Etapa", etapa)
-        print(M)
-        print()
-        etapa += 1
         # Por cada columna iterar por cada fila debajo de la diagonal
         for j in range(i+1, n):
             if M[j][i] != 0:
@@ -27,11 +27,14 @@ def lusimpl(A, b):
 
         U[i, i:n] = M[i, i:n]
         U[i+1, i+1:n] = M[i+1, i+1:n]
+        print("Etapa", etapa)
+        print("M:\n", M)
+        print("L:\n", L)
+        print("U:\n", U)
+        print()
+        etapa += 1
 
     U[n-1][n-1] = M[n-1][n-1]
-
-    print("Etapa", etapa)
-    print(M, '\n')
     stack = np.array(stack, dtype=int).reshape(-1,2)
     # Sustitucion regresiva
     #print("Despues de aplicar sustitucion regresiva\n")
