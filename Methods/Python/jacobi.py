@@ -17,8 +17,11 @@ def jacobi(A, b, x0, tol, Nmax):
     
     T = np.linalg.inv(D).dot(L+U)
     C = np.linalg.inv(D).dot(b)
-    #print("T\n",T)
-    #print("C\n",C)
+    print("T:\n", T)
+    print("C:\n",C)
+    eig = np.max(np.abs(np.linalg.eig(T)[0]))
+    print("Espectral radius:\n", eig)
+    print()
     xant = x0
     E = 1000
     cont = 0
