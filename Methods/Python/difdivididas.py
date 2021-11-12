@@ -6,26 +6,18 @@ def difdivididas(X, Y):
     D = np.zeros((n, n)) # (shape)
     X = np.matrix.transpose(X)
     etapa = 0
-    print("Etapa:", etapa)
-    print(D)
-    print()
     etapa += 1
 
     D[:,0] = np.matrix.transpose(Y)
-    print("Etapa:", etapa)
-    print(D)
-    print()
     etapa += 1
     for i in range(1, n):
         aux0 = D[i-1:n, i-1]
         aux = np.diff(aux0)
         aux2 = X[i:n] - X[0:n-i]
         D[i:n, i] = np.divide(aux, aux2)
-        print("Etapa:", etapa)
-        print(D)
-        print()
         etapa += 1
 
+    print("D:\n", D)
     coef = np.diag(D)
     return coef
 

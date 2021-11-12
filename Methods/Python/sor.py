@@ -17,8 +17,11 @@ def sor(A, b, x0, w, tol, Nmax):
     
     T = np.linalg.inv(D -(w*L)).dot((1-w)*D + w*U)
     C = w*np.linalg.inv(D- (w*L)).dot(b)
-    #print("T\n",T)
-    #print("C\n",C)
+    print("T:\n", T)
+    print("C:\n",C)
+    eig = np.max(np.abs(np.linalg.eig(T)[0]))
+    print("Espectral radius:\n", eig)
+    print()
     xant = x0
     E = 1000
     cont = 0

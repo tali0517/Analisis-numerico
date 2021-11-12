@@ -5,12 +5,6 @@ def lagrange(X, Y):
     n = X.size
     L = np.zeros((n, n)) # (shape)
 
-    etapa = 0
-    print("Etapa:", etapa)
-    print("L:\n", L)
-    print()
-    etapa +=1
-
     for i in range(n):
         aux0 = np.setdiff1d(X, X[i])
         aux = [1, -aux0[0]]
@@ -18,14 +12,8 @@ def lagrange(X, Y):
             aux = np.convolve(aux, [1, -aux0[j]])
         L[i,:] = aux / np.polyval(aux, X[i])
 
-        print("Etapa:", etapa)
-        print("L:\n", L)
-        print()
-        etapa +=1
-
     coef = Y.dot(L)
-    print("Etapa:", etapa)
-    print("L:\n", L)
+    print("Polinomios interpolantes de Lagrange:\n", L)
     print("Coef:\n", coef)
     return L, coef
 
