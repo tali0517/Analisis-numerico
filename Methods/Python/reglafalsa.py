@@ -9,6 +9,10 @@ def reglafalsa(func, a, b, Nmax, tol):
 
     fa = func(a)
     fb = func(b)
+    if fb-fa == 0:
+        print("Error: Division by zero")
+        return
+
     pm = (fb*a-fa*b)/(fb-fa)
     fpm = func(pm)
     
@@ -26,6 +30,9 @@ def reglafalsa(func, a, b, Nmax, tol):
             fa = fpm
         
         p0 = pm
+        if fb-fa == 0:
+            print("Error: Division by zero")
+            return
         pm = (fb*a - fa*b)/(fb-fa)
         fpm = func(pm)
         E = abs(pm-p0)

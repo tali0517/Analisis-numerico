@@ -14,6 +14,10 @@ def newton(f, df, x0, Nmax, tol):
     while i < Nmax and E > tol:
         print("|{i:3g}| {xi:.16f} | {fxi:.16f} | {E:.1E} |".format(i=i, xi=xant, fxi=fant, E=E))
         #print("X{i} =".format(i=i), xant,"|","f(x{i}) =".format(i=i), fant,"|","Error =", E)
+        if  fant-dfant == 0:
+            print("Error: division by zero")
+            return
+
         xact = xant - (fant/dfant)
         fact = f(xact)
         dfact = df(xact)

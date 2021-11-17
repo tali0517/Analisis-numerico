@@ -16,6 +16,9 @@ def secante(func, x0, x1, Nmax, tol):
     i = 2
 
     while i < Nmax and E > tol:
+        if f1-f0 == 0:
+            print("Error: Division by zero")
+            return
         xact = x1 -f1*((x1-x0)/(f1-f0))
         fact = f(xact)
         E = abs(xact-x1)

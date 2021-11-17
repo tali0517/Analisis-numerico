@@ -40,6 +40,10 @@ def lupar(A, b):
         for j in range(i+1, n):
             if M[j][i] != 0:
                 # Operacion de subfila
+                if M[i][i] == 0:
+                    print("Error: Division by zero")
+                    return
+
                 L[j][i] = M[j][i]/M[i][i]
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
