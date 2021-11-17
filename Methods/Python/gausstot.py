@@ -4,6 +4,11 @@ import numpy as np
 from sustreg import sustreg
 
 def gausstot(A, b):
+    det = np.linalg.det(A)
+    if det == 0:
+        print("Determinant of A is zero")
+        return
+
     M = np.column_stack((A, b))
     n = A.shape[0]
     M = M.astype('float')

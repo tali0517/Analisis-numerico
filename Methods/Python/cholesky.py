@@ -6,6 +6,11 @@ import cmath
 import numpy as np
 
 def cholesky(A, b):
+    det = np.linalg.det(A)
+    if det == 0:
+        print("Determinant of A is zero")
+        return
+    
     n = np.array(A.shape[0])
     L = np.eye(n, dtype=complex)
     U = np.eye(n, dtype=complex)

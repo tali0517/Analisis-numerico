@@ -4,7 +4,12 @@ import numpy as np
 from sustreg import sustreg
 
 def gausspl(A, b):
-    A
+    det = np.linalg.det(A)
+
+    if det == 0:
+        print("Determinant of A is zero")
+        return
+
     M = np.column_stack((A, b))
     n = A.shape[0]
     #print("Rows: ", M.shape[0], ",", "Columns:", M.shape[1])

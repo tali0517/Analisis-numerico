@@ -5,6 +5,11 @@ from sustreg import sustreg
 from sustprog import sustprog
 
 def lusimpl(A, b):
+    det = np.linalg.det(A)
+    if det == 0:
+        print("Determinant of A is zero")
+        return
+
     n = A.shape[0]
     L = np.eye(n)
     U = np.zeros((n, n))

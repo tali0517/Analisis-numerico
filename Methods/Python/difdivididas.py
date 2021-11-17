@@ -25,9 +25,11 @@ def main():
     #X = np.array([0, 2, 3, 4, 5, 6, 7])
     #
     #Y = np.array([1.1247, -0.8540, 0.5864, 1, -0.9062, 0.9081, -0.2700])
-    X = np.array([-1, 0, 3, 4])
-    
-    Y = np.array([15.5, 3, 8, 1])
+    #X = np.array([-1, 0, 3, 4])
+    #
+    #Y = np.array([15.5, 3, 8, 1])
+    X = np.array([2, 3, 4])
+    Y = np.array([1.5, 7, 2])
     coef = difdivididas(X, Y)
     print("Coef:\n", coef)
 

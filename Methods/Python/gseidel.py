@@ -8,6 +8,7 @@ def gseidel(A, b, x0, tol, Nmax):
     if det == 0:
         print("Determinant of matrix is 0")
         return
+
     D = np.diag(np.diag(A))
     L = -np.tril(A)+D
     U = -np.triu(A)+D
@@ -54,10 +55,14 @@ def main():
     #            [1, 6, 5],
     #            [2, 5, 6]))
     #b = np.array([1,1,1])
-    A = np.array(([4, -1, 0, 3],
-                  [1, 15.5, 3, 8],
-                  [0, -1.3, -4, 1.1],
-                  [14, 5, -2, 30]))
+    #A = np.array(([4, -1, 0, 3],
+    #              [1, 15.5, 3, 8],
+    #              [0, -1.3, -4, 1.1],
+    #              [14, 5, -2, 30]))
+    A = np.array(([300, 6, 100, 400],
+                  [6, -100, 300, -35],
+                  [100, 300, 200, 14],
+                  [400, -35, 14, 300]))
     b = np.array([1, 1, 1, 1])
     x0 = np.array([0, 0, 0, 0])
     gseidel(A, b, x0, 1e-7, 100)

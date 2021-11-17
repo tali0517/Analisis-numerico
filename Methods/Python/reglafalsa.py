@@ -32,16 +32,18 @@ def reglafalsa(func, a, b, Nmax, tol):
         count += 1
 
     if count == Nmax or E > tol:
+        print("|{i:3g}| {a:.16f} | {xm:.16f} | {b:.16f} | {fpm:.16f} | {E:.1E} |".format(i=count, a=a, xm=pm, b=b, fpm=fpm, E=E))
         print("El metodo no esta convergiendo")
     else:
         print("|{i:3g}| {a:.16f} | {xm:.16f} | {b:.16f} | {fpm:.16f} | {E:.1E} |".format(i=count, a=a, xm=pm, b=b, fpm=fpm, E=E))
 
 def funcion(x):
     #return math.exp(x) + math.sin(x)
-    return math.log(math.sin(x)**2 + 1) - 1/2
+    return 1.0000*(x**3) - 6.8000*(x**2) + 13.1600*x - 7.8400
+    #return math.log(math.sin(x)**2 + 1) - 1/2
 
 def main():
-    reglafalsa(funcion, 0, 1, 100, 1e-7)
+    reglafalsa(funcion, 1, 1.9, 100, 1e-7)
 
 if __name__ == '__main__':
     main()

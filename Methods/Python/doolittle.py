@@ -5,6 +5,11 @@ from sustprog import sustprog
 import numpy as np
 
 def doolittle(A, b):
+    det = np.linalg.det(A)
+    if det == 0:
+        print("Determinant of A is zero")
+        return
+
     n = np.array(A.shape[0])
     L = np.eye(n)
     U = np.eye(n)
@@ -39,11 +44,17 @@ def main():
     #            [2, 3, 1],
     #            [4, -3, 1]))
     #b = np.array([0.5, 1, 0])
-    A = np.array(([4, -1, 0, 3],
-                  [1, 15.5, 3, 8],
-                  [0, -1.3, -4, 1.1],
-                  [14, 5, -2, 30]))
+    #A = np.array(([4, -1, 0, 3],
+    #              [1, 15.5, 3, 8],
+    #              [0, -1.3, -4, 1.1],
+    #              [14, 5, -2, 30]))
+    A = np.array(([  0.125,   0.25,    0.5,     1   ],
+                 [  1,      1,      1,      1   ],
+                 [ 27,      9,      3,      1   ],
+                 [125,     25,      5,      1.   ]))
+
     b = np.array([1, 1, 1, 1])
+    b = np.array([ 1,   -6.8,  13.16, -7.84])
     x = doolittle(A, b)
     print("X:\n", x)
 
