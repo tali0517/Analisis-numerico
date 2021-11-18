@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" tybe="text/css" href="{{url_for('static', filename='css/form.css')}}">
+    <link rel="stylesheet" tybe="text/css" href="{{url_for('static', filename='css/normalize.css')}}">
     <title>Graph</title>
 </head>
 
@@ -23,13 +25,17 @@
                 setCanvasSize(960, 500)
                 var opts = { doEqualizeAxes: true, doDrawAxes: true }
                 drawFn(-2.9, 2.9, -0.1, 1.1, opts, function (x) {
-                    return {{fx}}
+                    return {{ fx }
+                }
                 })
 
             </script>
         </div>
     </div>
-    <div>
+    <div class="history_cont">
+        <div class="text">
+            This are your last inputs
+        </div>
         <ul>
             {% for history in history %}
             <li>
