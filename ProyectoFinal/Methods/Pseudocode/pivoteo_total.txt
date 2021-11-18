@@ -1,0 +1,52 @@
+Input: n x n Matrix A, n x 1 vector b
+Output: regresive substitution answer
+(n, m) = len(A)
+A = MakeAugmentedMatrix(A, b)
+if n == m then 
+    for i in range l until n Do
+        mark(i) = i
+    for k in range l until n - l Do
+        bigger = 0
+        rowm = k 
+        colm = k 
+        for p in range k until n Do
+            for r in range k until n Do
+                if bigger < apr then
+                    bigger = apr
+                    rowm = p
+                    colm = r 
+        
+        if bigger == 0 then 
+            # Suspended 
+        else
+            if rowm is not k then 
+                for j un range l until  n + l Do
+                    Aux = a(k, j)
+                    a(k, j) = a(i, colmnam)
+                    a(i, columnam) = Aux
+                Aux = mark(k)
+                mark(k) = mark(columnam)
+                mark(columnam) = Aux
+        for i range k + l until n Do
+            ma = aik / akk
+            for j in range k until n + l Do
+                aij = aij - mik * akj
+        for i in range n until l Do
+            sum = 0
+            for p in range i + l until n Do
+                sum = sum + aip * xp
+            xi = (bi - sum) / aii
+        for i in range n until l Do
+            for j in range n until n Do
+                if mark(j) == i then 
+                    k = j
+                Aux = x(k)
+                x(k) = x(i)
+                x(i) = Aux
+                Aux = mark(k)
+                mark(k) = mark(i)
+                mark(i) = Aux
+else
+    # The matrix is not cuadratic 
+print(a)
+print(x)

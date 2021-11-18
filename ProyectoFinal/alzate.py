@@ -1,4 +1,8 @@
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, request
+from io import StringIO
+import sys
+from Methods.Python.gausspl import gausspl
+import numpy as np
 
 alzate = Blueprint('alzate', __name__,
                         template_folder='templates',
@@ -6,4 +10,45 @@ alzate = Blueprint('alzate', __name__,
 
 @alzate.route('/')
 def show():
-    return "hOLa Alzarres"
+    return render_template('Linear/gausspl.html')
+
+@alzate.route('/methods/gausspl', methods=['GET', 'POST'])
+def gausspl_route():
+    val = ''
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = gausspl(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/gausspl.html', A = A, b = b, st = st, x = x, stdout = result_stdout)
+
+
+def matrix_str(A):
+    mstr = ''
+    n = A.shape[0]
+    for i in range(n):
+        for j in range(n):
+            mstr += "{number: .3f}".format(number = A[i][j])
+        mstr += '\n'
+
+    return mstr
+
+
+#@alzate.route('/methods/gausspl', methods=['POST'])
+#def gausspl_func():
+#    val = 'jajajajajj'
+#    return render_template('Linear/gausspl.html', val=val)
+    
+
