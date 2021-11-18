@@ -61,8 +61,10 @@ a:active{
 .functionbig{
     width:200px;
     height: 300px;
-    margin-left: 15%;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 10px;
+    align-items: center;
     
 }
 .parameters{

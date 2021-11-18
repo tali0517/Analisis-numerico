@@ -1,56 +1,37 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h1 class=title>Numeric analysis Final project</h1>
-    <div class="expl">
-        this is a website in which you will be able touse a wide variety of methods to solve numerical
-        analysis problems. <br>
+<h1 class=title>Numeric analysis Final project</h1>
+<div class="expl">
+    this is a website in which you will be able touse a wide variety of methods to solve numerical
+    analysis problems. <br>
 
-        this page was made as part of the final project for the Numeric analysis course at EAFIT univeristy
-        by:
-        <ul id="students">
-            <li>Santiago Alzate</li>
-            <li> Alejandro Castaño</li>
-            <li>Sebastian Urrego</li>
-            <li>Esteban Sierra</li>
-        </ul>
+    this page was made as part of the final project for the Numeric analysis course at EAFIT univeristy
+    by:
+    <ul id="students">
+        <li>Santiago Alzate</li>
+        <li> Alejandro Castaño</li>
+        <li>Sebastian Urrego</li>
+        <li>Esteban Sierra</li>
+    </ul>
+</div>
+<div class="functionbig">
+    <div class="parameters">
+        Parameters
     </div>
-    <div class="functionbig">
-        <div class="parameters">
-            Parameters
-        </div>
-        <div class="functionn">
-            <form action="tali/form" method="POST">
-                <label>
-                    Please input your function f
-                    <input type="text" id="input" value="" name='fx'>
-                </label>
-                <label id="grids" name='grid'>
-                    Activate grid
-                    <input type="checkbox">
-                </label>
-                <label>
-                    <input type="submit" id="plot" value="Plot the function">
-                </label>
-            </form>
-        </div>
-        <div class="graph">
-            <div class="title_graph">
-                Function graph
-            </div>
-            <div class="function_plot">
-                <svg vertion="1.1" style="background-color:#fff" id="svg" xmlns="http://www.w3.org/2000/svg">
-
-                </svg>
-                <script type="text/javascript" src="{{url_for('static', filename='js/plot.js')}}"></script>
-                <script>
-
-                    setCanvasSize(960, 500)
-                    var opts = { doEqualizeAxes: true, doDrawAxes: true }
-                    drawFn(-2.9, 2.9, -0.1, 1.1, opts, function (x) {
-                        return x + 2
-                    })
-
-                </script>
-            </div>
-        </div>
+    <div class="functionn">
+        <form action="tali/form" method="POST">
+            <label>
+                Please input your function f
+                <input type="text" id="input" value="" name='fx'>
+            </label>
+            <label id="grids" name='grid'>
+                Activate grid
+                <input type="checkbox">
+            </label>
+            <label>
+                <input type="submit" id="plot" value="Plot the function">
+            </label>
+        </form>
+    </div>
+</div>
 {% endblock %}

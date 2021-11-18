@@ -10,7 +10,7 @@ tali = Blueprint('tali', __name__,
 def show():
     return render_template("index.html")
 
-@tali.route('form' , methods=["POST"])
+@tali.route('form' , methods=["POST", "GET"])
 def form():
     fx = request.form.get('fx')
     grid= request.form.get('grid')
