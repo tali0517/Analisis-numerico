@@ -37,6 +37,7 @@ def crout(A, b):
     print("U:\n", U)
     z= sustprog(np.column_stack((L, b)))
     x = sustreg(np.column_stack((U, z)))
+    print("X:\n", x)
 
     return x
 

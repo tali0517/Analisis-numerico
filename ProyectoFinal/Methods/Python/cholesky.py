@@ -43,6 +43,7 @@ def cholesky(A, b):
 
     z= sustprog(np.column_stack((L, b)))
     x = sustreg(np.column_stack((U, z)))
+    print("X:\n", x)
     return x
 
 def main():

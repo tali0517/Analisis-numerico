@@ -6,6 +6,9 @@ from Methods.Python.gausspar import gausspar
 from Methods.Python.gausstot import gausstot
 from Methods.Python.lusimpl import lusimpl
 from Methods.Python.lupar import lupar
+from Methods.Python.crout import crout
+from Methods.Python.doolittle import doolittle
+from Methods.Python.cholesky import cholesky
 import numpy as np
 
 alzate = Blueprint('alzate', __name__,
@@ -120,6 +123,69 @@ def lupar_route():
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
     return render_template('Linear/lupar.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/crout', methods=['GET', 'POST'])
+def crout_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = crout(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/crout.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/doolittle', methods=['GET', 'POST'])
+def doolittle_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = doolittle(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/doolittle.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/cholesky', methods=['GET', 'POST'])
+def cholesky_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = cholesky(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/cholesky.html', st = st, x = x, stdout = result_stdout)
 
 def matrix_str(A):
     mstr = ''
