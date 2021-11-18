@@ -4,6 +4,8 @@ import sys
 from Methods.Python.gausspl import gausspl
 from Methods.Python.gausspar import gausspar
 from Methods.Python.gausstot import gausstot
+from Methods.Python.lusimpl import lusimpl
+from Methods.Python.lupar import lupar
 import numpy as np
 
 alzate = Blueprint('alzate', __name__,
@@ -16,7 +18,6 @@ def show():
 
 @alzate.route('/methods/gausspl', methods=['GET', 'POST'])
 def gausspl_route():
-    val = ''
     A = np.zeros((3,3))
     b = np.zeros(3)
     if request.method == 'POST':
@@ -38,7 +39,6 @@ def gausspl_route():
 
 @alzate.route('/methods/gausspar', methods=['GET', 'POST'])
 def gausspar_route():
-    val = ''
     A = np.zeros((3,3))
     b = np.zeros(3)
     if request.method == 'POST':
@@ -60,7 +60,6 @@ def gausspar_route():
 
 @alzate.route('/methods/gausstot', methods=['GET', 'POST'])
 def gausstot_route():
-    val = ''
     A = np.zeros((3,3))
     b = np.zeros(3)
     if request.method == 'POST':
@@ -80,6 +79,48 @@ def gausstot_route():
     result_stdout = result_stdout.split('\n')
     return render_template('Linear/gausstot.html', st = st, x = x, stdout = result_stdout)
 
+@alzate.route('/methods/lusimpl', methods=['GET', 'POST'])
+def lusimpl_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = lusimpl(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/lusimpl.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/lupar', methods=['GET', 'POST'])
+def lupar_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = lupar(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/lupar.html', st = st, x = x, stdout = result_stdout)
+
 def matrix_str(A):
     mstr = ''
     n = A.shape[0]
@@ -89,11 +130,3 @@ def matrix_str(A):
         mstr += '\n'
 
     return mstr
-
-
-#@alzate.route('/methods/gausspl', methods=['POST'])
-#def gausspl_func():
-#    val = 'jajajajajj'
-#    return render_template('Linear/gausspl.html', val=val)
-    
-

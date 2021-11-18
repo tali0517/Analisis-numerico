@@ -48,6 +48,7 @@ def lusimpl(A, b):
     #print("Despues de aplicar sustitucion regresiva\n")
     z = sustprog(np.column_stack((L, b)))
     x = sustreg(np.column_stack((U, z)))
+    print("X:\n", x)
     return x
 
 def main():
