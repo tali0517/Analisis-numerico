@@ -74,7 +74,7 @@ a:active{
 
 }
 
-.function{
+.functionn{
     width:200px;
     height: 150px;
     border: 2px solid  black; 
@@ -102,11 +102,21 @@ label{
 
 .graph{
     width: 500px;
-    height: 300px;
+    height: 500px;
     border: 2px solid black;
     margin-left: 400px;
     margin-bottom: 50%;
     margin-top: 0%;
     display: block;
     float:left;
+}
+
+#svg{
+    width:500px;
+    height:500px; 
+    border: 1px solid black;
+    margin: 10%;
+    margin:0px auto;
+    height: fit-content;
+    width: fit-content;
 }

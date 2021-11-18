@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph</title>
+</head>
+
+<body>
+    <div class="graph">
+        <div class="title_graph">
+            Function graph
+        </div>
+        <div class="function_plot">
+            <svg vertion="1.1" style="background-color:#fff" id="svg" xmlns="http://www.w3.org/2000/svg">
+
+            </svg>
+            <script type="text/javascript" src="{{url_for('static', filename='js/plot.js')}}"></script>
+            <script>
+
+                setCanvasSize(960, 500)
+                var opts = { doEqualizeAxes: true, doDrawAxes: true }
+                drawFn(-2.9, 2.9, -0.1, 1.1, opts, function (x) {
+                    return x + 2
+                })
+
+            </script>
+        </div>
+    </div>
+    <div>
+        <ul>
+            {% for history in history %}
+            <li>
+                {{history}}
+            </li>
+            {% endfor %}}
+        </ul>
+    </div>
+</body>
+
+</html>
