@@ -16,6 +16,6 @@ def form():
     grid= request.form.get('grid')
     history.append(f"{fx} {grid}")
     title= "graph"
-    return render_template("form.html", title=title, history= history)
+    return render_template("form.html", title=title, history= history, fx=fx)
 
 

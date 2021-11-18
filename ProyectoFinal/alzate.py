@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, abort, request
 from io import StringIO
 import sys
-import numpy as np
+
 from Methods.Python.gausspl import gausspl
 from Methods.Python.gausspar import gausspar
 from Methods.Python.gausstot import gausstot
@@ -13,6 +13,7 @@ from Methods.Python.cholesky import cholesky
 from Methods.Python.jacobi import jacobi
 from Methods.Python.gseidel import gseidel
 from Methods.Python.sor import sor
+import numpy as np
 
 alzate = Blueprint('alzate', __name__,
                         template_folder='templates',
