@@ -13,4 +13,13 @@
 <a href="{{ url_for('alzate.jacobi_route') }}"><button type="button" class="btn btn-primary">Jacobi</button></a>
 <a href="{{ url_for('alzate.gseidel_route') }}"><button type="button" class="btn btn-primary">Gauss - Seidel</button></a>
 <a href="{{ url_for('alzate.sor_route') }}"><button type="button" class="btn btn-primary">SOR</button></a>
+
+<br><br>
+<h2>Interpolation</h2>
+<a href="{{ url_for('urrego.vandermonde_route') }}"><button type="button" class="btn btn-primary">Vandermonde</button></a>
+<a href="{{ url_for('urrego.newton_interpolation_route') }}"><button type="button" class="btn btn-primary">Newton (Divided difference method)</button></a>
+<a href="{{ url_for('urrego.lagrange_route') }}"><button type="button" class="btn btn-primary">Lagrange</button></a>
+<a href="{{ url_for('urrego.spline_linear_route') }}"><button type="button" class="btn btn-primary">Spline (Linear)</button></a>
+<a href="{{ url_for('urrego.spline_square_route') }}"><button type="button" class="btn btn-primary">Spline (Square)</button></a>
+<a href="{{ url_for('urrego.spline_cubic_route') }}"><button type="button" class="btn btn-primary">Spline (Cubic)</button></a>
 {% endblock %}
