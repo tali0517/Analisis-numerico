@@ -1,0 +1,21 @@
+Input: Function g, range x0, Total of iteration Nmax, tolerance tol
+Output: graph of the function with the solution
+xant <- x0
+E <- 1000
+count <- 0
+while (count < Nmax) and (E > tol) Do
+    xact <- g(xant)
+    E <- |xact - xant|
+    xant <- xact
+    count <- count + 1
+for i from 1 to Nmax Do
+    if (fant * fact) < 0 then
+        break
+    else 
+        xant <- xact
+        fant <- fact
+        xact <- xant + Delta
+        fact <- f(xact)
+    
+a = xant
+b = xact

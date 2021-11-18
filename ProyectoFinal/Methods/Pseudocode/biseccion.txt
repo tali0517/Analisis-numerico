@@ -1,0 +1,22 @@
+Input: Function f, start left a, ends right b, Total of iteration Nmax, tolerance tol
+Output: graph of the function with the solution
+if a > b then   # a cannot be greater than a 
+    break;      
+fa <- f(a)
+fb <- f(b)
+pm <- a + (b - a)/2
+fpm <- f(pm)
+E = 1000    # The error
+count = 1
+while (count < Nmax) and (E > tol) do
+    if (fa * fpm) < 0 then
+        b <- pm
+        fb <- fpm
+    else 
+        a <- pm
+        fa <- fpm
+    p0 <- pm
+    pm <- (a + b)/2
+    fpm <- f(pm)
+    E <- |p0 - pm|
+    count = count + 1
