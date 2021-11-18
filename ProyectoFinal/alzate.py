@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, abort, request
 from io import StringIO
 import sys
 from Methods.Python.gausspl import gausspl
+from Methods.Python.gausspar import gausspar
+from Methods.Python.gausstot import gausstot
 import numpy as np
 
 alzate = Blueprint('alzate', __name__,
@@ -32,8 +34,51 @@ def gausspl_route():
     x = gausspl(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/gausspl.html', A = A, b = b, st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/gausspl.html', st = st, x = x, stdout = result_stdout)
 
+@alzate.route('/methods/gausspar', methods=['GET', 'POST'])
+def gausspar_route():
+    val = ''
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = gausspar(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/gausspar.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/gausstot', methods=['GET', 'POST'])
+def gausstot_route():
+    val = ''
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    if request.method == 'POST':
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+                b[i] =  float(request.form["fieldb"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = gausstot(A, b)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/gausstot.html', st = st, x = x, stdout = result_stdout)
 
 def matrix_str(A):
     mstr = ''
