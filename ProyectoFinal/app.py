@@ -20,6 +20,10 @@ app.register_blueprint(tali, url_prefix='/tali')
 def hello():
     return render_template("index.html")
 
+@app.route('/methods')
+def methods_route():
+    return render_template("methods.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
