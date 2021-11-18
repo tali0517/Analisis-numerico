@@ -16,10 +16,10 @@
 
 <br><br>
 <h2>Interpolation</h2>
-<a href="{{ url_for('urrego.vandermonde_route') }}"><button type="button" class="btn btn-primary">Vandermonde</button></a>
-<a href="{{ url_for('urrego.newton_interpolation_route') }}"><button type="button" class="btn btn-primary">Newton (Divided difference method)</button></a>
-<a href="{{ url_for('urrego.lagrange_route') }}"><button type="button" class="btn btn-primary">Lagrange</button></a>
-<a href="{{ url_for('urrego.spline_linear_route') }}"><button type="button" class="btn btn-primary">Spline (Linear)</button></a>
-<a href="{{ url_for('urrego.spline_square_route') }}"><button type="button" class="btn btn-primary">Spline (Square)</button></a>
-<a href="{{ url_for('urrego.spline_cubic_route') }}"><button type="button" class="btn btn-primary">Spline (Cubic)</button></a>
+<a href="{{ url_for('urrego.vandermonde_route', array = 'None') }}"><button type="button" class="btn btn-primary">Vandermonde</button></a>
+<a href="{{ url_for('urrego.newton_interpolation_route', array = 'None') }}"><button type="button" class="btn btn-primary">Newton (Divided difference method)</button></a>
+<a href="{{ url_for('urrego.lagrange_route', array = 3) }}"><button type="button" class="btn btn-primary">Lagrange</button></a>
+<a href="{{ url_for('urrego.spline_linear_route', array = 'None') }}"><button type="button" class="btn btn-primary">Spline (Linear)</button></a>
+<a href="{{ url_for('urrego.spline_square_route', array = 'None') }}"><button type="button" class="btn btn-primary">Spline (Square)</button></a>
+<a href="{{ url_for('urrego.spline_cubic_route', array = 'None') }}"><button type="button" class="btn btn-primary">Spline (Cubic)</button></a>
 {% endblock %}
