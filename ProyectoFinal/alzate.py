@@ -9,6 +9,9 @@ from Methods.Python.lupar import lupar
 from Methods.Python.crout import crout
 from Methods.Python.doolittle import doolittle
 from Methods.Python.cholesky import cholesky
+from Methods.Python.jacobi import jacobi
+from Methods.Python.gseidel import gseidel
+from Methods.Python.sor import sor
 import numpy as np
 
 alzate = Blueprint('alzate', __name__,
@@ -186,6 +189,95 @@ def cholesky_route():
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
     return render_template('Linear/cholesky.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/jacobi', methods=['GET', 'POST'])
+def jacobi_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    x0 = np.zeros(3)
+    tol = 0
+    nmax = 0
+    if request.method == 'POST':
+        nmax = float(request.form["fieldNmax"])
+        tol = float(request.form["fieldTol"])
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+            b[i] = float(request.form["fieldb"+str(i)])
+
+        for i in range(3):
+            x0[i] = float(request.form["fieldx"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = jacobi(A, b, x0, tol, nmax)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/jacobi.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/gseidel', methods=['GET', 'POST'])
+def gseidel_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    x0 = np.zeros(3)
+    tol = 0
+    nmax = 0
+    if request.method == 'POST':
+        nmax = float(request.form["fieldNmax"])
+        tol = float(request.form["fieldTol"])
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+            b[i] = float(request.form["fieldb"+str(i)])
+
+        for i in range(3):
+            x0[i] = float(request.form["fieldx"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = gseidel(A, b, x0, tol, nmax)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/gseidel.html', st = st, x = x, stdout = result_stdout)
+
+@alzate.route('/methods/sor', methods=['GET', 'POST'])
+def sor_route():
+    A = np.zeros((3,3))
+    b = np.zeros(3)
+    x0 = np.zeros(3)
+    tol = 0
+    nmax = 0
+    w = 0
+    if request.method == 'POST':
+        nmax = float(request.form["fieldNmax"])
+        tol = float(request.form["fieldTol"])
+        w = float(request.form["fieldw"])
+        for i in range(3):
+            for j in range(3):
+                A[i][j] =  float(request.form["field"+str(i)+str(j)])
+
+        for i in range(3):
+            b[i] = float(request.form["fieldb"+str(i)])
+
+        for i in range(3):
+            x0[i] = float(request.form["fieldx"+str(i)])
+
+    st = matrix_str(A)
+    st = st.split('\n')
+    stdout  = StringIO()
+    sys.stdout = stdout # Output will be recorded
+    x = sor(A, b, x0, w, tol, nmax)
+    result_stdout = stdout.getvalue()
+    result_stdout = result_stdout.split('\n')
+    return render_template('Linear/sor.html', st = st, x = x, stdout = result_stdout)
 
 def matrix_str(A):
     mstr = ''
