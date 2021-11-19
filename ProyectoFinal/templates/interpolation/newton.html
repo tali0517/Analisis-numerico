@@ -6,9 +6,9 @@
     {% if data['message'] != '' %}
       <h3 style="color: red;">{{ data['message'] }}</h3>
     {% endif %}
-    <a href="{{url_for('urrego.newton_interpolation_route', array = data['array_len'] + 1)}}">Aumentar</a>
+    <a href="{{url_for('urrego.newton_interpolation_route', array = data['array_len'] + 1)}}">Increase</a>
     <br>
-    <a href="{{url_for('urrego.newton_interpolation_route', array = data['array_len'] - 1)}}">Reducir</a>
+    <a href="{{url_for('urrego.newton_interpolation_route', array = data['array_len'] - 1)}}">Decrease</a>
     <form id="inputField" role="form" method='POST'>
       <h2>A:</h2>
       
@@ -49,6 +49,11 @@
                 <br>
         {% endfor %}
     </div>
+    <br>
+    <details>
+      <summary>Help?</summary>
+      X vector or Y vector can´t contain a repeat value.
+    </details>
   </div>
 </div>
 {% endblock %}

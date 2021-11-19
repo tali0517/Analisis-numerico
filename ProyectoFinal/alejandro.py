@@ -30,7 +30,7 @@ def incsearch_route():
         delta = request.form['delta']
         nmax = request.form['nmax']
 
-        global function = sympify(function)
+        #global function = sympify(function)
 
         stdout = StringIO()
         sys.stdout = stdout

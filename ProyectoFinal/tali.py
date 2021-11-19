@@ -10,12 +10,15 @@ tali = Blueprint('tali', __name__,
 def show():
     return render_template("index.html")
 
-@tali.route('form' , methods=["POST", "GET"])
+@tali.route('/form' , methods=["POST", "GET"])
 def form():
     fx = request.form.get('fx')
     grid= request.form.get('grid')
     history.append(f"{fx} {grid}")
     title= "graph"
-    return render_template("form.html", title=title, history= history, fx=fx)
+    return render_template("graph/form.html", title=title, history= history, fx=fx)
 
-
+@tali.route('/graph' , methods=["POST", "GET"])
+def graph():
+    data = {'title':'Function Plotter'}
+    return render_template('graph/graph.html', data = data)

@@ -17,7 +17,7 @@ app.register_blueprint(tali, url_prefix='/tali')
 
 
 @app.route('/')
-def home():
+def hello():
     return render_template("nav/index.html")
 
 @app.route('/methods')
