@@ -182,11 +182,11 @@ def multiroots_route():
         x = symbols('x')
         return funct.evalf(subs={x: s})
 
-    def fundx(s):
+    def funcdx(s):
         x = symbols('x')
         return fundx.evalf(subs={x: s})
 
-    def fun2dx(s):
+    def func2dx(s):
         x = symbols('x')
         return fun2dx.evalf(subs={x: s})
 
@@ -204,7 +204,7 @@ def multiroots_route():
 
         stdout = StringIO()
         sys.stdout = stdout
-        x = raicesmlt(funcion, fundx, fun2dx,x0, nmax, tol)
+        x = raicesmlt(funcion, funcdx, func2dx,x0, nmax, tol)
         result_stdout = stdout.getvalue()
         result_stdout = result_stdout.split('\n')
         return render_template('singleVariable/multipleroots.html', x=x, stdout = result_stdout)

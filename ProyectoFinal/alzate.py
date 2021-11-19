@@ -23,237 +23,239 @@ alzate = Blueprint('alzate', __name__,
 def show():
     return render_template('Linear/gausspl.html')
 
-@alzate.route('/methods/gausspl', methods=['GET', 'POST'])
-def gausspl_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/gausspl/<int:array>', methods=['GET', 'POST'])
+def gausspl_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = gausspl(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/gausspl.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/gausspl.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/gausspar', methods=['GET', 'POST'])
-def gausspar_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/gausspar/<int:array>', methods=['GET', 'POST'])
+def gausspar_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = gausspar(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/gausspar.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/gausspar.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/gausstot', methods=['GET', 'POST'])
-def gausstot_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/gausstot/<int:array>', methods=['GET', 'POST'])
+def gausstot_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = gausstot(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/gausstot.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/gausstot.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/lusimpl', methods=['GET', 'POST'])
-def lusimpl_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/lusimpl/<int:array>', methods=['GET', 'POST'])
+def lusimpl_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = lusimpl(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/lusimpl.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/lusimpl.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/lupar', methods=['GET', 'POST'])
-def lupar_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/lupar/<int:array>', methods=['GET', 'POST'])
+def lupar_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = lupar(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/lupar.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/lupar.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/crout', methods=['GET', 'POST'])
-def crout_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/crout/<int:array>', methods=['GET', 'POST'])
+def crout_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = crout(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/crout.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/crout.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/doolittle', methods=['GET', 'POST'])
-def doolittle_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/doolittle/<int:array>', methods=['GET', 'POST'])
+def doolittle_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = doolittle(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/doolittle.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/doolittle.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/cholesky', methods=['GET', 'POST'])
-def cholesky_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
+@alzate.route('/methods/cholesky/<int:array>', methods=['GET', 'POST'])
+def cholesky_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
     if request.method == 'POST':
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
                 b[i] =  float(request.form["fieldb"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = cholesky(A, b)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/cholesky.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/cholesky.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/jacobi', methods=['GET', 'POST'])
-def jacobi_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
-    x0 = np.zeros(3)
+@alzate.route('/methods/jacobi/<int:array>', methods=['GET', 'POST'])
+def jacobi_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
+    x0 = np.zeros(array)
     tol = 0
     nmax = 0
     if request.method == 'POST':
         nmax = float(request.form["fieldNmax"])
         tol = float(request.form["fieldTol"])
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
             b[i] = float(request.form["fieldb"+str(i)])
 
-        for i in range(3):
+        for i in range(array):
             x0[i] = float(request.form["fieldx"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = jacobi(A, b, x0, tol, nmax)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/jacobi.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/jacobi.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/gseidel', methods=['GET', 'POST'])
-def gseidel_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
-    x0 = np.zeros(3)
+@alzate.route('/methods/gseidel/<int:array>', methods=['GET', 'POST'])
+def gseidel_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
+    x0 = np.zeros(array)
     tol = 0
     nmax = 0
     if request.method == 'POST':
         nmax = float(request.form["fieldNmax"])
         tol = float(request.form["fieldTol"])
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
             b[i] = float(request.form["fieldb"+str(i)])
 
-        for i in range(3):
+        for i in range(array):
             x0[i] = float(request.form["fieldx"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = gseidel(A, b, x0, tol, nmax)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/gseidel.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/gseidel.html', x = x, stdout = result_stdout, data = data)
 
-@alzate.route('/methods/sor', methods=['GET', 'POST'])
-def sor_route():
-    A = np.zeros((3,3))
-    b = np.zeros(3)
-    x0 = np.zeros(3)
+@alzate.route('/methods/sor/<int:array>', methods=['GET', 'POST'])
+def sor_route(array):
+    data = {}
+    data['matrix_size'] = array
+    A = np.zeros((array, array))
+    b = np.zeros(array)
+    x0 = np.zeros(array)
     tol = 0
     nmax = 0
     w = 0
@@ -261,24 +263,22 @@ def sor_route():
         nmax = float(request.form["fieldNmax"])
         tol = float(request.form["fieldTol"])
         w = float(request.form["fieldw"])
-        for i in range(3):
-            for j in range(3):
+        for i in range(array):
+            for j in range(array):
                 A[i][j] =  float(request.form["field"+str(i)+str(j)])
 
-        for i in range(3):
+        for i in range(array):
             b[i] = float(request.form["fieldb"+str(i)])
 
-        for i in range(3):
+        for i in range(array):
             x0[i] = float(request.form["fieldx"+str(i)])
 
-    st = matrix_str(A)
-    st = st.split('\n')
     stdout  = StringIO()
     sys.stdout = stdout # Output will be recorded
     x = sor(A, b, x0, w, tol, nmax)
     result_stdout = stdout.getvalue()
     result_stdout = result_stdout.split('\n')
-    return render_template('Linear/sor.html', st = st, x = x, stdout = result_stdout)
+    return render_template('Linear/sor.html', x = x, stdout = result_stdout, data = data)
 
 def matrix_str(A):
     mstr = ''
