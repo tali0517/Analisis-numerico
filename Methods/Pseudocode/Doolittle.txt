@@ -1,0 +1,72 @@
+Process Doolittle
+	Read A, b
+	(n,m)= Size(A)
+	a = MatrixAumented (A,b)
+
+	If n = m Then
+	   For k=1 Until n
+		Lkk= 1
+		add=0
+		For p=1 Until k-1
+		   add =add+Lkp*upk
+		End For
+	        Ukk=akk – add
+		For i=k+1 Until n
+		   add=0
+		   For r=1 Until k-1
+
+			add=add + Lir*urk
+		   End For
+		   Lik = (aik – suma)/ukk
+		End For
+		For j=k+1 Until n
+		   add=0
+		   For s=1 Until k-1
+
+			add=add + Lks*usj
+
+		   End For
+		   Ukj = akj – suma
+		End For
+	   End For
+	   determinant(u)=1
+	   determinant(L)=1
+	   For i=1 Until n
+		derteminant(u)= derteminant(u)*uii
+	   End For
+	   Product = determinant(u)*determinant(L)
+	   If product !=0 Then
+		For i=1 Until n
+		   add=0
+		   For p=1 Until i -1
+
+			add=add + Lip*Zp
+
+		   End For
+		   Zi = (bi - suma) / Lii
+
+		End For
+		For i=n Until 1 pass-1
+
+		   add=0
+		   For p=i+1 Until n
+
+			add = add + uip*xp
+
+		   End For
+		   Xi = (Zi - suma) / uii
+
+		End For
+	   else
+		Show: ‘Determinant = 0 which means the system has either infinite 		or cero solutions’
+
+	   End If
+	else
+	   Show: ‘Matrix is not square’
+	End If
+	Print a
+	Print L	
+	Print u
+	Print z
+	Print x
+End Process

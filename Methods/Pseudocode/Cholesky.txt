@@ -1,0 +1,67 @@
+Process Factorice LU Cholesky Method
+Read A, b
+	(n,m)= Tamaño(A)
+	a = FormaMatrizAumentada (A,b)
+	If n = m Then
+		for k=1 until n
+		    add=0
+		    for p=1 until k-1
+			add =add+Lkp*upk
+		    End for
+		    Lkk= sqrt(akk- add)
+		    Ukk =Lkk
+		for i=k+1 Untik n
+		    add=0
+		    for r=1 until k-1
+		 	add=add + Lir*urk
+
+		     End for
+		     Lik = (aik – suma) / Lkk
+		End for
+		For j=k+1 Until n
+		    add=0
+		     For s=1 Hasta k-1
+
+			suma=suma + Lks*usj
+
+		     End For
+		     Ukj = (akj – suma) / Lkk
+		 End For	
+		End For
+		determinant(u)
+		determinant(L)
+		Product = determinant(u)*determinant(L)
+		if product != 0 then
+		    For i=1 Until n
+			add=0
+			For p=1 Until i-1
+
+				add=add + Lip*Zp
+
+			End For
+			Zi = (bi - add) / Lii
+
+		     End For
+		     For i=n Until 1 pass-1
+
+			add=0
+			For p=i+1 Until n
+
+				add = add + uip*xp
+
+			End For		
+			xi = (Zi - suma) / uii
+
+		      End For
+		Else
+		      Show: ‘Determinant = 0 which means the system has infinite 		      or no solution'
+		End If
+	Else
+		Show: ‘The matriz is not square’
+	End If
+	Print a
+	Print L
+	Print u
+	Print z
+	Print x
+End Process
