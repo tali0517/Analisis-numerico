@@ -14,17 +14,17 @@
         <a href="{{ url_for('alejandro.secant_route') }}"><button type="button" class="btn btn-primary">Secant method</button></a>
         <a href="{{ url_for('alejandro.multiroots_route') }}"><button type="button" class="btn btn-primary">Multiple method</button></a>
     <h2>Solution to system equations</h2>
-        <a href="{{ url_for('alzate.gausspl_route') }}"><button type="button" class="btn btn-primary">Gausspl</button></a>
-        <a href="{{ url_for('alzate.gausspar_route') }}"><button type="button" class="btn btn-primary">Gausspar</button></a>
-        <a href="{{ url_for('alzate.gausstot_route') }}"><button type="button" class="btn btn-primary">Gausstot</button></a>
-        <a href="{{ url_for('alzate.lusimpl_route') }}"><button type="button" class="btn btn-primary">LU simple</button></a>
-        <a href="{{ url_for('alzate.lupar_route') }}"><button type="button" class="btn btn-primary">LU par</button></a>
-        <a href="{{ url_for('alzate.cholesky_route') }}"><button type="button" class="btn btn-primary">Cholesky</button></a>
-        <a href="{{ url_for('alzate.doolittle_route') }}"><button type="button" class="btn btn-primary">Doolittle</button></a>
-        <a href="{{ url_for('alzate.crout_route') }}"><button type="button" class="btn btn-primary">Crout</button></a>
-        <a href="{{ url_for('alzate.jacobi_route') }}"><button type="button" class="btn btn-primary">Jacobi</button></a>
-        <a href="{{ url_for('alzate.gseidel_route') }}"><button type="button" class="btn btn-primary">Gauss - Seidel</button></a>
-        <a href="{{ url_for('alzate.sor_route') }}"><button type="button" class="btn btn-primary">SOR</button></a>
+        <a href="{{ url_for('alzate.gausspl_route', array = 4) }}"><button type="button" class="btn btn-primary">Gausspl</button></a>
+        <a href="{{ url_for('alzate.gausspar_route', array = 4) }}"><button type="button" class="btn btn-primary">Gausspar</button></a>
+        <a href="{{ url_for('alzate.gausstot_route', array = 4) }}"><button type="button" class="btn btn-primary">Gausstot</button></a>
+        <a href="{{ url_for('alzate.lusimpl_route', array = 4) }}"><button type="button" class="btn btn-primary">LU simple</button></a>
+        <a href="{{ url_for('alzate.lupar_route', array = 4) }}"><button type="button" class="btn btn-primary">LU par</button></a>
+        <a href="{{ url_for('alzate.cholesky_route', array = 4) }}"><button type="button" class="btn btn-primary">Cholesky</button></a>
+        <a href="{{ url_for('alzate.doolittle_route', array = 4) }}"><button type="button" class="btn btn-primary">Doolittle</button></a>
+        <a href="{{ url_for('alzate.crout_route', array = 4) }}"><button type="button" class="btn btn-primary">Crout</button></a>
+        <a href="{{ url_for('alzate.jacobi_route', array = 4) }}"><button type="button" class="btn btn-primary">Jacobi</button></a>
+        <a href="{{ url_for('alzate.gseidel_route', array = 4) }}"><button type="button" class="btn btn-primary">Gauss - Seidel</button></a>
+        <a href="{{ url_for('alzate.sor_route', array = 4) }}"><button type="button" class="btn btn-primary">SOR</button></a>
 
     <br><br>
     <h2 >Interpolation</h2>

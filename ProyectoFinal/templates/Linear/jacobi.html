@@ -4,30 +4,26 @@
   <div class="well well-lg">
     <h1 class="text-center">Jacobi</h1>
     <form id="inputField" role="form" method='POST'>
+    <h2>Size: {{ data['matrix_size'] }}</h2>
+    <a href="{{ url_for('alzate.jacobi_route', array = data['matrix_size'] + 1) }}">Increase</a>
+    <br>
+    <a href="{{ url_for('alzate.jacobi_route', array = data['matrix_size'] - 1) }}">Decrease</a>
     <h2>A:</h2>
-      <input type="number" name="field00" size="3" step="any">
-      <input type="number" name="field01" size="3" step="any">
-      <input type="number" name="field02" size="3" step="any">
-      <br>
-      <input type="number" name="field10" size="3" step="any">
-      <input type="number" name="field11" size="3" step="any">
-      <input type="number" name="field12" size="3" step="any">
-      <br>
-      <input type="number" name="field20" size="3" step="any">
-      <input type="number" name="field21" size="3" step="any">
-      <input type="number" name="field22" size="3" step="any">
-      <br>
-      <br>
-      <br>
+      {% for row in range(data['matrix_size'])%}
+          {% for col in range(data['matrix_size'])%}
+          <input type="number" name="field{{row}}{{col}}" size="3" step="any">
+          {% endfor %}
+          <br>
+      {% endfor %}
     <h2>b:</h2>
-      <input type="number" name="fieldb0" size="3" step="any">
-      <input type="number" name="fieldb1" size="3" step="any">
-      <input type="number" name="fieldb2" size="3" step="any">
+      {% for index in range(data['matrix_size'])%}
+          <input type="number" name="fieldb{{index}}" size="3" step="any">
+      {% endfor %}
       <br>
     <h2>x0:</h2>
-      <input type="number" name="fieldx0" size="3" step="any">
-      <input type="number" name="fieldx1" size="3" step="any">
-      <input type="number" name="fieldx2" size="3" step="any">
+      {% for index in range(data['matrix_size'])%}
+          <input type="number" name="fieldx{{index}}" size="3" step="any">
+      {% endfor %}
       <br>
     <h2>Nmax:</h2>
       <input type="number" name="fieldNmax" size="3" step="any">
@@ -35,15 +31,13 @@
     <h2>Tol:</h2>
       <input type="number" name="fieldTol" size="3" step="any">
       <br>
-      <input type="submit" onclick="window.location.href='{{ url_for( 'alzate.jacobi_route') }}" value="calculate" name="calculate" class="btn btn-info">
+      <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
     <div id="resultField">
-        {%if st %}
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
-        {% endif %}
     </div>
   </div>
 </div>
