@@ -19,7 +19,7 @@ def gausspl(A, b):
     etapa = 0
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
-        print("Etapa", etapa)
+        print("Phase", etapa)
         print(M)
         etapa += 1
         if M[i][i] == 0:
@@ -30,7 +30,7 @@ def gausspl(A, b):
                     change = True
                     break
             if change:
-                print("Etapa", etapa)
+                print("Phase", etapa)
                 print(M)
                 etapa += 1
             else:
@@ -44,11 +44,11 @@ def gausspl(A, b):
                 # Operacion de subfila
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
-    print("Etapa", etapa)
+    print("Phase", etapa)
     print(M, '\n')
     # Sustitucion regresiva
     x = sustreg(M)
-    print("Despues de aplicar sustitucion regresiva\n")
+    print("After applying backward substitution\n")
     print("X:")
     print(x)
     return x

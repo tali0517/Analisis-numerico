@@ -18,7 +18,7 @@ def gausspar(A, b):
     etapa = 0
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
-        print("Etapa", etapa)
+        print("Phase", etapa)
         print(M)
         print()
         etapa += 1
@@ -31,7 +31,7 @@ def gausspar(A, b):
             M[[i, i+aux1+1],i:] = M[[i+aux1+1, i],i:] # Asi se intercambian filas en python
             #M[i+aux1+1][i:] = M[i][i:]
             #M[i][i:]=aux2
-            print("Cambio de fila")
+            print("Row change")
             print(M)
             print()
         # Por cada columna iterar por cada fila debajo de la diagonal
@@ -40,11 +40,11 @@ def gausspar(A, b):
                 # Operacion de subfila
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
-    print("Etapa", etapa)
+    print("Phase", etapa)
     print(M, '\n')
     # Sustitucion regresiva
     x = sustreg(M)
-    print("Despues de aplicar sustitucion regresiva\n")
+    print("After applying backward substitution\n")
     print("X:")
     print(x)
     return x

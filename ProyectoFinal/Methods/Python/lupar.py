@@ -18,7 +18,7 @@ def lupar(A, b):
 
     stack = []
     etapa = 0
-    print("Etapa", etapa)
+    print("Phase", etapa)
     print(M)
     print()
     etapa += 1
@@ -50,7 +50,7 @@ def lupar(A, b):
         U[i, i:n] = M[i, i:n]
         U[i+1, i+1:n] = M[i+1, i+1:n]
 
-        print("Etapa", etapa)
+        print("Phase", etapa)
         print("M:\n", M)
         print("L:\n", L)
         print("U:\n", U)
@@ -62,7 +62,7 @@ def lupar(A, b):
 
     stack = np.array(stack, dtype=int).reshape(-1,2)
     # Sustitucion regresiva
-    #print("Despues de aplicar sustitucion regresiva\n")
+    print("After applying forward and backward substitution\n")
     z = sustprog(np.column_stack((L, P.dot(b))))
     x = sustreg(np.column_stack((U, z)))
     print("X:\n", x)

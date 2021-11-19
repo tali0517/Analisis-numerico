@@ -17,7 +17,7 @@ def lusimpl(A, b):
     M = M.astype('float')
     stack = []
     etapa = 0
-    print("Etapa", etapa)
+    print("Phase", etapa)
     print("M:\n", M)
     print()
     etapa += 1
@@ -35,7 +35,7 @@ def lusimpl(A, b):
 
         U[i, i:n] = M[i, i:n]
         U[i+1, i+1:n] = M[i+1, i+1:n]
-        print("Etapa", etapa)
+        print("Phase", etapa)
         print("M:\n", M)
         print("L:\n", L)
         print("U:\n", U)
@@ -45,7 +45,7 @@ def lusimpl(A, b):
     U[n-1][n-1] = M[n-1][n-1]
     stack = np.array(stack, dtype=int).reshape(-1,2)
     # Sustitucion regresiva
-    #print("Despues de aplicar sustitucion regresiva\n")
+    print("After applying forward and backward substitution\n")
     z = sustprog(np.column_stack((L, b)))
     x = sustreg(np.column_stack((U, z)))
     print("X:\n", x)
