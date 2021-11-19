@@ -3,7 +3,7 @@
 import math
 
 def busqueda(func, xin, delta, Nmax):
-    if delta<=0:
+    if float(delta)<=0:
         print('Delta value can not be negative')
         return
 

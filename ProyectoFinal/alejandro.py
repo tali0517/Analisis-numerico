@@ -24,17 +24,21 @@ def show():
 @alejandro.route('/methods/incsearch', methods=['GET', 'POST'])
 def incsearch_route():
 
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
+
     if request.method == 'POST':
         function = request.form['function']
-        xin = request.form['xin']
-        delta = request.form['delta']
-        nmax = request.form['nmax']
+        xin = float(request.form['xin'])
+        delta = float(request.form['delta'])
+        nmax = int(request.form['nmax'])
 
-        #global function = sympify(function)
+        funct = sympify(function)
 
         stdout = StringIO()
         sys.stdout = stdout
-        x = busqueda(function, xin, delta, nmax)
+        x = busqueda(funcion, xin, delta, nmax)
         result_stdout = stdout.getvalue()
         result_stdout = result_stdout.split('\n')
         return render_template('singleVariable/incSearch.html', x=x, stdout=result_stdout)
@@ -44,27 +48,27 @@ def incsearch_route():
 
 @alejandro.route('/methods/bisection', methods=['GET', 'POST'])
 def bisection_route():
-    def function(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2
-    a = 0
-    b = 0.5
-    nmax = 100
-    tol = math.exp(-7)
+
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
 
     if request.method == 'POST':
         function = request.form['function']
-        a = request.form['a']
-        b = request.form['b']
-        nmax = request.form['nmax']
-        tol = request.form['tol']
+        a = float(request.form['a'])
+        b = float(request.form['b'])
+        nmax = int(request.form['nmax'])
+        tol = int(request.form['tol'])
 
-    stdout = StringIO()
-    sys.stdout = stdout
-    x = biseccion(function, a, b, nmax, tol)
-    result_stdout = stdout.getvalue()
-    result_stdout = result_stdout.split('\n')
-    return render_template('singleVariable/bisection.html', x=x, stdout = result_stdout)
+        funct = sympify(function)
 
+        stdout = StringIO()
+        sys.stdout = stdout
+        x = biseccion(funcion, a, b, nmax, tol)
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        return render_template('singleVariable/bisection.html', x=x, stdout = result_stdout)
+    return render_template('singleVariable/bisection.html')
 
 @alejandro.route('/methods/falsepos', methods=['GET', 'POST'])
 def falsepos_route():

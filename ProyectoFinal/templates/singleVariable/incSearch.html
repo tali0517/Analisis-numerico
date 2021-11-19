@@ -20,12 +20,10 @@
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.incsearch_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
     <div id="resultField">
-        {%if st %}
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
-        {% endif %}
     </div>
   </div>
 </div>
