@@ -5,10 +5,10 @@
     <h1 class="text-center">Fixed Point</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Function 'f'</h2>
-      <input type="string" name="function" step="any">
+      <input type="text" name="function" step="any">
       <br>
     <h2>Function 'g'</h2>
-      <input type="string" name="fung" step="any">
+      <input type="text" name="fung" step="any">
       <br>
     <h2>Initial value</h2>
         <input type="number" name="xini" size="3" step="any">
@@ -23,12 +23,10 @@
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.fixedpoint_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
     <div id="resultField">
-        {%if st %}
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
-        {% endif %}
     </div>
   </div>
 </div>

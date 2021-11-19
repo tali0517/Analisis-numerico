@@ -5,7 +5,7 @@
     <h1 class="text-center">False Position</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
-      <input type="string" name="function" step="any">
+      <input type="text" name="function" step="any">
       <br>
     <h2>Initial value A</h2>
         <input type="number" name="a" size="3" step="any">
@@ -23,12 +23,10 @@
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.falsepos_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
     <div id="resultField">
-        {%if st %}
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
-        {% endif %}
     </div>
   </div>
 </div>

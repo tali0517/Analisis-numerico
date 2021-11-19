@@ -58,7 +58,7 @@ def bisection_route():
         a = float(request.form['a'])
         b = float(request.form['b'])
         nmax = int(request.form['nmax'])
-        tol = int(request.form['tol'])
+        tol = float(request.form['tol'])
 
         funct = sympify(function)
 
@@ -72,119 +72,141 @@ def bisection_route():
 
 @alejandro.route('/methods/falsepos', methods=['GET', 'POST'])
 def falsepos_route():
-    def function(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2
-    a = 0
-    b = 0.5
-    nmax = 100
-    tol = math.exp(-7)
+
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
 
     if request.method == 'POST':
         function = request.form['function']
-        a = request.form['a']
-        b = request.form['b']
-        nmax = request.form['nmax']
-        tol = request.form['tol']
+        a = float(request.form['a'])
+        b = float(request.form['b'])
+        nmax = int(request.form['nmax'])
+        tol = float(request.form['tol'])
 
-    stdout = StringIO()
-    sys.stdout = stdout
-    x = reglafalsa(function, a, b, nmax, tol)
-    result_stdout = stdout.getvalue()
-    result_stdout = result_stdout.split('\n')
-    return render_template('singleVariable/falsepos.html', x=x, stdout = result_stdout)
+        funct = sympify(function)
 
+        stdout = StringIO()
+        sys.stdout = stdout
+        x = reglafalsa(funcion, a, b, nmax, tol)
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        return render_template('singleVariable/falsepos.html', x=x, stdout = result_stdout)
+    return render_template('singleVariable/falsepos.html')
 
 @alejandro.route('/methods/fixedpoint', methods=['GET', 'POST'])
 def fixedpoint_route():
-    def function(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2 - x
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
 
-    def functiong(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2
-    x0 = 0
-    nmax = 100
-    tol = math.exp(-7)
+    def fung(s):
+        x = symbols('x')
+        return fung.evalf(subs={x: s})
 
     if request.method == 'POST':
         f = request.form['function']
         g = request.form['fung']
-        xini = request.form['xini']
-        nmax = request.form['nmax']
-        tol = request.form['tol']
+        xini = float(request.form['xini'])
+        nmax = int(request.form['nmax'])
+        tol = float(request.form['tol'])
 
-    stdout = StringIO()
-    sys.stdout = stdout
-    x = puntofijo(function, g, xini, nmax, tol)
-    result_stdout = stdout.getvalue()
-    result_stdout = result_stdout.split('\n')
-    return render_template('singleVariable/fixedpoint.html', x=x, stdout = result_stdout)
+        funct = sympify(f)
+        fung = sympify(g)
 
+        stdout = StringIO()
+        sys.stdout = stdout
+        x = puntofijo(funcion, fung, xini, nmax, tol)
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        return render_template('singleVariable/fixedpoint.html', x=x, stdout = result_stdout)
+    return render_template('singleVariable/fixedpoint.html')
 
 @alejandro.route('/methods/newtonraphs', methods=['GET', 'POST'])
 def newtonraphs_route():
-    def function(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2 - x
-    x0 = 0
-    nmax = 100
-    tol = math.exp(-7)
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
+
+    def dfunc(s):
+        x = symbols('x')
+        return functdx.evalf(subs={x: s})
 
     if request.method == 'POST':
         f = request.form['function']
         fdx = request.form['fdx']
-        xini = request.form['xini']
-        nmax = request.form['nmax']
-        tol = request.form['tol']
+        xini = float(request.form['xini'])
+        nmax = int(request.form['nmax'])
+        tol = float(request.form['tol'])
 
-    stdout = StringIO()
-    sys.stdout = stdout
-    x = newton(f, fdx, xini, nmax, tol)
-    result_stdout = stdout.getvalue()
-    result_stdout = result_stdout.split('\n')
-    return render_template('singleVariable/newtonraphs.html', x=x, stdout = result_stdout)
+        funct = sympify(f)
+        functdx = sympify(fdx)
+
+        print(type(funct), type(functdx), type(xini), type(nmax), type(tol))
+        stdout = StringIO()
+        sys.stdout = stdout
+        x = newton(funcion, dfunc, xini, nmax, tol)
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        return render_template('singleVariable/newtonraphs.html', x=x, stdout = result_stdout)
+    return render_template('singleVariable/newtonraphs.html')
 
 
 @alejandro.route('/methods/secant', methods=['GET', 'POST'])
 def secant_route():
-    def function(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2 - x
-    x0 = 0
-    nmax = 100
-    tol = math.exp(-7)
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
 
     if request.method == 'POST':
         f = request.form['function']
-        x0 = request.form['xin']
-        x1 = request.form['x']
-        nmax = request.form['nmax']
-        tol = request.form['tol']
+        x0 = float(request.form['xin'])
+        x1 = float(request.form['x'])
+        nmax = int(request.form['nmax'])
+        tol = float(request.form['tol'])
 
-    stdout = StringIO()
-    sys.stdout = stdout
-    x = secante(f, x0, x1, nmax, tol)
-    result_stdout = stdout.getvalue()
-    result_stdout = result_stdout.split('\n')
-    return render_template('singleVariable/newtonraphs.html', x=x, stdout = result_stdout)
+        funct = sympify(f)
+
+        stdout = StringIO()
+        sys.stdout = stdout
+        x = secante(funcion, x0, x1, nmax, tol)
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        return render_template('singleVariable/newtonraphs.html', x=x, stdout = result_stdout)
+    return render_template('singleVariable/newtonraphs.html')
+
 
 @alejandro.route('/methods/multiroots', methods=['GET', 'POST'])
 def multiroots_route():
-    def function(x):
-        return math.log(math.sin(x) ** 2 + 1) - 1 / 2 - x
-    x0 = 0
-    nmax = 100
-    tol = math.exp(-7)
+    def funcion(s):
+        x = symbols('x')
+        return funct.evalf(subs={x: s})
+
+    def fundx(s):
+        x = symbols('x')
+        return fundx.evalf(subs={x: s})
+
+    def fun2dx(s):
+        x = symbols('x')
+        return fun2dx.evalf(subs={x: s})
 
     if request.method == 'POST':
         f = request.form['function']
         fdx = request.form['fdx']
-        f2dx = request.form['f2dx']
-        x0 = request.form['xin']
-        nmax = request.form['nmax']
-        tol = request.form['tol']
+        f2dx = request.form['fd2x']
+        x0 = float(request.form['x0'])
+        nmax = int(request.form['nmax'])
+        tol = float(request.form['tol'])
 
-    stdout = StringIO()
-    sys.stdout = stdout
-    x = raicesmlt(f, fdx, f2dx,x0, nmax, tol)
-    result_stdout = stdout.getvalue()
-    result_stdout = result_stdout.split('\n')
-    return render_template('singleVariable/multipleroots.html', x=x, stdout = result_stdout)
+        funct = sympify(f)
+        fundx = sympify(fdx)
+        fun2dx = sympify(f2dx)
+
+        stdout = StringIO()
+        sys.stdout = stdout
+        x = raicesmlt(funcion, fundx, fun2dx,x0, nmax, tol)
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        return render_template('singleVariable/multipleroots.html', x=x, stdout = result_stdout)
+    return render_template('singleVariable/multipleroots.html')
 

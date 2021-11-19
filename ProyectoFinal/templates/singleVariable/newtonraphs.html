@@ -2,16 +2,16 @@
 {% block content %}
 <div class="container">
   <div class="well well-lg">
-    <h1 class="text-center">Newton - Raphson</h1>
+    <h1 class="text-center">Secant Method</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
       <input type="text" name="function" step="any">
       <br>
-    <h2>Function's Derivative</h2>
-       <input type="text" name="fdx" size="3" step="any">
+    <h2>Initial value x0</h2>
+      <input type="number" name="xin" size="3" step="any">
       <br>
-    <h2>Initial value</h2>
-      <input type="number" name="xini" size="3" step="any">
+     <h2>Initial value x1</h2>
+      <input type="number" name="x" size="3" step="any">
       <br>
      <h2>Tol</h2>
       <input type="number" name="tol" size="3" step="any">
@@ -23,12 +23,10 @@
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.incsearch_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
     <div id="resultField">
-        {%if st %}
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
-        {% endif %}
     </div>
   </div>
 </div>
