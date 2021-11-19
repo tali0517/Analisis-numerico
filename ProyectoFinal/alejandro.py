@@ -184,6 +184,3 @@ def multiroots_route():
     result_stdout = result_stdout.split('\n')
     return render_template('singleVariable/multipleroots.html', x=x, stdout = result_stdout)
 
-def funct(s):
-    x = symbols('x')
-    function.evalf(subs={x: s})
