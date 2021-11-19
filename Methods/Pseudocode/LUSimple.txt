@@ -1,0 +1,10 @@
+For k= 1 Until n-1
+	For i=k+1 Until n
+	   A(i,k) = A(i,k)/A(k,k)
+	End For
+	For i= k+1 Until n
+	   For j= k+1 Until n
+		A(i,j) = A(i,j) - A(i,k) * A(k,j)
+	   End For
+	End For
+End for
