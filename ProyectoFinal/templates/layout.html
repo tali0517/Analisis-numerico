@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js"
         integrity="sha512-CWVDkca3f3uAWgDNVzW+W4XJbiC3CH84P2aWZXj+DqI6PNbTzXbl1dIzEHeNJpYSn4B6U8miSZb/hCws7FnUZA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" tybe="text/css" href="{{url_for('static', filename='css/plantilla.css')}}">
     <link rel="stylesheet" tybe="text/css" href="{{url_for('static', filename='css/normalize.css')}}">
+    <link rel="stylesheet" tybe="text/css" href="{{url_for('static', filename='css/plantilla.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap">
     <title>
@@ -16,17 +17,44 @@
 </head>
 
 <body>
-    <div class="conth">
-        <header>
-            <nav class="head_nav">
-                <ul>
-                    <li id=headp><a id="home" href="/"> Main Page</a></li>
-                    <li id=headp><a id="home" href="/methods"> Methods</a></li>
-                    <li id=headp><a id="home" href="/nosotros.html"> About us</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
+    <style>
+        body {margin: 0;}
+        
+        ul.topnav {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        ul.topnav li {float: left;}
+        
+        ul.topnav li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        ul.topnav li a:hover:not(.active) {background-color: #111;}
+        
+        ul.topnav li a.active {background-color: #04AA6D;}
+        
+        ul.topnav li.right {float: right;}
+        
+        @media screen and (max-width: 600px) {
+          ul.topnav li.right, 
+          ul.topnav li {float: none;}
+        }
+        </style>
+        <ul class="topnav">
+          <li><a class="active" href="{{ url_for('home') }}">Main page</a></li>
+          <li><a href="{{ url_for('methods_route') }}">Methods</a></li>
+          <li><a href="{{ url_for('about_us_route') }}">About Us</a></li>
+          <li class="right"><a href="{{ url_for('help_route') }}">Help</a></li>
+        </ul>
     {% block content %}
     {% endblock %}
 </body>

@@ -3,26 +3,23 @@
 <div class="container">
   <div class="well well-lg">
     <h1 class="text-center">{{ data['title'] }}</h1>
+    {% if data['message'] != '' %}
+      <h3 style="color: red;">{{ data['message'] }}</h3>
+    {% endif %}
+    <a href="{{url_for('urrego.spline_square_route', array = data['array_len'] + 1)}}">Aumentar</a>
+    <br>
+    <a href="{{url_for('urrego.spline_square_route', array = data['array_len'] - 1)}}">Reducir</a>
     <form id="inputField" role="form" method='POST'>
     <h2>A:</h2>
-      <input type="number" name="field00" size="3" step="any">
-      <input type="number" name="field01" size="3" step="any">
-      <input type="number" name="field02" size="3" step="any">
-      <br>
-      <input type="number" name="field10" size="3" step="any">
-      <input type="number" name="field11" size="3" step="any">
-      <input type="number" name="field12" size="3" step="any">
-      <br>
-      <input type="number" name="field20" size="3" step="any">
-      <input type="number" name="field21" size="3" step="any">
-      <input type="number" name="field22" size="3" step="any">
+    {% for n in range(data['array_len']) %}
+      <input type="number" name="field0{{ n }}" size="1" step="any" style="width: 8%;"  value="{{ range(-51, 51) | random }}">
+    {% endfor %}
+    <br>
+    {% for n in range(data['array_len']) %}
+      <input type="number" name="field1{{ n }}" size="1" step="any" style="width: 8%;"  value="{{ range(-51, 51) | random }}">
+    {% endfor %}
       <br>
       <br>
-      <br>
-    <h2>b:</h2>
-      <input type="number" name="fieldb0" size="3" step="any">
-      <input type="number" name="fieldb1" size="3" step="any">
-      <input type="number" name="fieldb2" size="3" step="any">
       <br>
       <input type="submit" onclick="window.location.href='" value="calculate" name="calculate" class="btn btn-info">
     </form>
@@ -37,3 +34,4 @@
   </div>
 </div>
 {% endblock %}
+

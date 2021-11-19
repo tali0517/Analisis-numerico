@@ -3,17 +3,20 @@
 <div class="container">
   <div class="well well-lg">
     <h1 class="text-center">{{ data['title'] }}</h1>
+    {% if data['message'] != '' %}
+      <h3 style="color: red;">{{ data['message'] }}</h3>
+    {% endif %}
     <a href="{{url_for('urrego.lagrange_route', array = data['array_len'] + 1)}}">Aumentar</a>
     <br>
     <a href="{{url_for('urrego.lagrange_route', array = data['array_len'] - 1)}}">Reducir</a>
     <form id="inputField" role="form" method='POST'>
     <h2>A:</h2>
     {% for n in range(data['array_len']) %}
-      <input type="number" name="field0{{ n }}" size="1" step="any">
+      <input type="number" name="field0{{ n }}" size="1" step="any" style="width: 8%;"  value="{{ range(-51, 51) | random }}">
     {% endfor %}
     <br>
     {% for n in range(data['array_len']) %}
-      <input type="number" name="field1{{ n }}" size="1" step="any">
+      <input type="number" name="field1{{ n }}" size="1" step="any" style="width: 8%;"  value="{{ range(-51, 51) | random }}">
     {% endfor %}
       <br>
       <br>
