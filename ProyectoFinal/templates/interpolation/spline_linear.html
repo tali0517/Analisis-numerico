@@ -43,12 +43,10 @@
       <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
     <div id="resultField">
-        {%if st %}
-            {% for line in stdout %}
+            {% for line in data['summary'] %}
                 {{ line }}
                 <br>
             {% endfor %}
-        {% endif %}
     </div>
   </div>
 </div>

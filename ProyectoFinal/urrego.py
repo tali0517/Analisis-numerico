@@ -6,7 +6,11 @@ import numpy as np
 
 # Import the methods
 from Methods.Python.vandermonde import vandermonde
-from Methods.Python.difdivididas import difdivididas
+from Methods.Python.difdivididas import difdivididas # Newton
+from Methods.Python.lagrange import lagrange
+from Methods.Python.trazlin import trazlin
+from Methods.Python.trazcuad import trazcuad
+from Methods.Python.trazcub import trazcub
 
 urrego = Blueprint('urrego', __name__,
                         template_folder='templates',
@@ -86,7 +90,13 @@ def lagrange_route(array):
         for n in range(array):
             X.append(float(request.form["field0"+str(n)]))
             Y.append(float(request.form["field1"+str(n)]))
-        vandermonde(np.array(X),np.array(Y))
+        stdout  = StringIO()
+        sys.stdout = stdout
+        lagrange(np.array(X),np.array(Y))
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        data['summary'] = result_stdout
+        stdout.close()
 
     # Configuration of the input array
     data['message'] = ''
@@ -111,7 +121,13 @@ def spline_linear_route(array):
         for n in range(array):
             X.append(float(request.form["field0"+str(n)]))
             Y.append(float(request.form["field1"+str(n)]))
-        vandermonde(np.array(X),np.array(Y))
+        stdout  = StringIO()
+        sys.stdout = stdout
+        trazlin(np.array(X),np.array(Y))
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        data['summary'] = result_stdout
+        stdout.close()
 
     # Configuration of the input array
     data['message'] = ''
@@ -136,7 +152,13 @@ def spline_square_route(array):
         for n in range(array):
             X.append(float(request.form["field0"+str(n)]))
             Y.append(float(request.form["field1"+str(n)]))
-        vandermonde(np.array(X),np.array(Y))
+        stdout  = StringIO()
+        sys.stdout = stdout
+        trazcuad(np.array(X),np.array(Y))
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        data['summary'] = result_stdout
+        stdout.close()
 
     # Configuration of the input array
     data['message'] = ''
@@ -161,7 +183,13 @@ def spline_cubic_route(array):
         for n in range(array):
             X.append(float(request.form["field0"+str(n)]))
             Y.append(float(request.form["field1"+str(n)]))
-        vandermonde(np.array(X),np.array(Y))
+        stdout  = StringIO()
+        sys.stdout = stdout
+        trazcub(np.array(X),np.array(Y))
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        data['summary'] = result_stdout
+        stdout.close()
 
     # Configuration of the input array
     data['message'] = ''

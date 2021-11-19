@@ -9,7 +9,7 @@ def trazlin(X, Y):
     b = np.zeros(m)
     coef = np.zeros((n-1, 2))
     etapa = 0
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
@@ -22,7 +22,7 @@ def trazlin(X, Y):
     A[0, [0, 1]] = np.array([X[0], 1])
     b[0] = Y[0]
 
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
@@ -32,17 +32,20 @@ def trazlin(X, Y):
         A[n+i-1, 2*i-2:2*i+2] = np.array([X[i], 1, -X[i], -1])
         b[n+i-1] = 0
 
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
 
-    print("INICIO - GAUSSTOT")
+    print("Start - GAUSSTOT")
     Saux = gausstot(A, b)
-    print("TERMINA - GAUSSTOT")
+    print("Finish - GAUSSTOT")
 
     for i in range(n-1):
         coef[i,:] = Saux[[2*i, 2*i+1]]
+    
+    print("Coef:\n", coef)
+    
     return coef
 
 def main():

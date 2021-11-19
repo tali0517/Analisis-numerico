@@ -13,7 +13,7 @@ def lagrange(X, Y):
         L[i,:] = aux / np.polyval(aux, X[i])
 
     coef = Y.dot(L)
-    print("Polinomios interpolantes de Lagrange:\n", L)
+    print("Lagrange interpolating polynomials:\n", L)
     print("Coef:\n", coef)
     return L, coef
 

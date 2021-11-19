@@ -10,7 +10,7 @@ def trazcuad(X, Y):
     b = np.zeros(m)
     coef = np.zeros((n-1, 3))
     etapa = 0
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
@@ -23,7 +23,7 @@ def trazcuad(X, Y):
 
     A[0, 0:3] = np.array([X[0]**2, X[0], 1])
     b[0] = Y[0]
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
@@ -33,7 +33,7 @@ def trazcuad(X, Y):
     for i in range(1, n-1):
         A[n+i-1, 3*i-3:3*i+3] = np.array([X[i]**2, X[i], 1, -X[i]**2, -X[i], -1])
         b[n+i-1] = 0
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
@@ -46,23 +46,24 @@ def trazcuad(X, Y):
 
     A[m-1, 0] = 2
     b[m-1] = 0
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
     etapa += 1
 
-    print("INICIO - GAUSSTOT")
+    print("Start - GAUSSTOT")
     Saux = gausstot(A, b)
-    print("TERMINA - GAUSSTOT")
+    print("End - GAUSSTOT")
 
     for i in range(n-1):
         coef[i,:] = Saux[3*i:3*i+3]
 
-    print("Etapa:", etapa)
+    print("Phase:", etapa)
     print("A:\n", A)
     print("b:\n", b)
     print()
+    print("Coef:\n", coef)
     return coef
 
 def main():
