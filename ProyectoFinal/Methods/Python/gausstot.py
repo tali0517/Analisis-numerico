@@ -16,7 +16,7 @@ def gausstot(A, b):
     etapa = 0
     # Todas las columnas de A - 1
     for i in range(0, n - 1):
-        print("Etapa", etapa)
+        print("Phase", etapa)
         print(M)
         print()
         etapa += 1
@@ -30,14 +30,14 @@ def gausstot(A, b):
         # Cambio de fila
         if row+i != i:
             M[[row+i, i],i:] = M[[i, row+i],i:]
-            print("Cambio de fila")
+            print("Row change")
             print(M)
             print()
         # Cambio de columna
         if col+i != i:
             M[:,[i, col+i]] = M[:,[col+i, i]]
             stack = np.append(stack, [i, col+i])  # Agregar cambio de columna al stack
-            print("Cambio de columna")
+            print("Column change")
             print(M)
             print()
 
@@ -47,16 +47,16 @@ def gausstot(A, b):
                 # Operacion de subfila
                 M[j][i:n+1] = M[j][i:] - (M[j][i]/M[i][i])*M[i][i:]
 
-    print("Etapa", etapa)
+    print("Phase", etapa)
     print(M, '\n')
     stack = np.array(stack, dtype=int).reshape(-1,2)
     # Sustitucion regresiva
     x = sustreg(M)
-    print("Despues de aplicar sustitucion regresiva\n")
-    print("X antes del cambio de columnas:")
+    print("After applying back substitution\n")
+    print("X before changing columns:")
     print(x)
     x = cambioCols(x, stack)
-    print("X despues del cambio de columnas:")
+    print("X after changing columns:")
     print(x)
     return x
 

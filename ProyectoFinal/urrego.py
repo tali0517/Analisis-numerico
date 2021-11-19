@@ -1,4 +1,12 @@
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, request
+from io import StringIO
+import sys
+import numpy as np
+
+
+# Import the methods
+from Methods.Python.vandermonde import vandermonde
+from Methods.Python.difdivididas import difdivididas
 
 urrego = Blueprint('urrego', __name__,
                         template_folder='templates',
@@ -8,7 +16,22 @@ urrego = Blueprint('urrego', __name__,
 def vandermonde_route(array):
     data = {}
     data['title'] = 'Vandermonde'
-    
+    result_stdout = None
+    if request.method == 'POST':
+        X = []
+        Y = []
+        for n in range(array):
+            X.append(float(request.form["field0"+str(n)]))
+            Y.append(float(request.form["field1"+str(n)]))
+        stdout  = StringIO()
+        sys.stdout = stdout
+        vandermonde(np.array(X),np.array(Y))
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        data['summary'] = result_stdout
+        stdout.close()
+
+
     # Configuration of the input array
     data['message'] = ''
     if array < 1:
@@ -25,6 +48,20 @@ def vandermonde_route(array):
 def newton_interpolation_route(array):
     data = {}
     data['title'] = 'Newton'
+
+    if request.method == 'POST':
+        X = []
+        Y = []
+        for n in range(array):
+            X.append(float(request.form["field0"+str(n)]))
+            Y.append(float(request.form["field1"+str(n)]))
+        stdout  = StringIO()
+        sys.stdout = stdout
+        difdivididas(np.array(X),np.array(Y))
+        result_stdout = stdout.getvalue()
+        result_stdout = result_stdout.split('\n')
+        data['summary'] = result_stdout
+        stdout.close()
 
     # Configuration of the input array
     data['message'] = ''
@@ -43,6 +80,14 @@ def lagrange_route(array):
     data = {}
     data['title'] = 'Lagrange'
     
+    if request.method == 'POST':
+        X = []
+        Y = []
+        for n in range(array):
+            X.append(float(request.form["field0"+str(n)]))
+            Y.append(float(request.form["field1"+str(n)]))
+        vandermonde(np.array(X),np.array(Y))
+
     # Configuration of the input array
     data['message'] = ''
     if array < 1:
@@ -60,6 +105,14 @@ def spline_linear_route(array):
     data = {}
     data['title'] = 'Spline Linear'
     
+    if request.method == 'POST':
+        X = []
+        Y = []
+        for n in range(array):
+            X.append(float(request.form["field0"+str(n)]))
+            Y.append(float(request.form["field1"+str(n)]))
+        vandermonde(np.array(X),np.array(Y))
+
     # Configuration of the input array
     data['message'] = ''
     if array < 1:
@@ -77,6 +130,14 @@ def spline_square_route(array):
     data = {}
     data['title'] = 'Spline Square'
     
+    if request.method == 'POST':
+        X = []
+        Y = []
+        for n in range(array):
+            X.append(float(request.form["field0"+str(n)]))
+            Y.append(float(request.form["field1"+str(n)]))
+        vandermonde(np.array(X),np.array(Y))
+
     # Configuration of the input array
     data['message'] = ''
     if array < 1:
@@ -94,6 +155,14 @@ def spline_cubic_route(array):
     data = {}
     data['title'] = 'Spline Cubic'
     
+    if request.method == 'POST':
+        X = []
+        Y = []
+        for n in range(array):
+            X.append(float(request.form["field0"+str(n)]))
+            Y.append(float(request.form["field1"+str(n)]))
+        vandermonde(np.array(X),np.array(Y))
+
     # Configuration of the input array
     data['message'] = ''
     if array < 1:

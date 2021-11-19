@@ -19,6 +19,8 @@ def difdivididas(X, Y):
 
     print("D:\n", D)
     coef = np.diag(D)
+    print("Coef:\n")
+    print(coef)
     return coef
 
 def main():

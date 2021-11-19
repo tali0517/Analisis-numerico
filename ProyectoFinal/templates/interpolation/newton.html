@@ -1,35 +1,53 @@
 {% extends 'layout.html'%}
 {% block content %}
-<div class="container">
+<div class="container" style="text-align: center;">
   <div class="well well-lg">
     <h1 class="text-center">{{ data['title'] }}</h1>
     {% if data['message'] != '' %}
       <h3 style="color: red;">{{ data['message'] }}</h3>
     {% endif %}
-    <a href="{{url_for('urrego.newton_route', array = data['array_len'] + 1)}}">Aumentar</a>
+    <a href="{{url_for('urrego.newton_interpolation_route', array = data['array_len'] + 1)}}">Aumentar</a>
     <br>
-    <a href="{{url_for('urrego.newton_route', array = data['array_len'] - 1)}}">Reducir</a>
+    <a href="{{url_for('urrego.newton_interpolation_route', array = data['array_len'] - 1)}}">Reducir</a>
     <form id="inputField" role="form" method='POST'>
-    <h2>A:</h2>
-    {% for n in range(data['array_len']) %}
-      <input type="number" name="field0{{ n }}" size="1" step="any" style="width: 8%;"  value="{{ range(-51, 51) | random }}">
-    {% endfor %}
-    <br>
-    {% for n in range(data['array_len']) %}
-      <input type="number" name="field1{{ n }}" size="1" step="any" style="width: 8%;"  value="{{ range(-51, 51) | random }}">
-    {% endfor %}
+      <h2>A:</h2>
+      
+      <table>
+        <tr>
+
+            X:
+
+          {% for n in range(data['array_len']) %}
+
+            <input type="number" name="field0{{ n }}" size="1" step="any" style="width: 8%;"
+              value="{{ range(-51, 51) | random }}">
+
+          {% endfor %}
+        </tr>
+        <br>
+        <tr>
+
+            Y:
+
+          {% for n in range(data['array_len']) %}
+
+            <input type="number" name="field1{{ n }}" size="1" step="any" style="width: 8%;"
+              value="{{ range(-51, 51) | random }}">
+
+          {% endfor %}
+        </tr>
+      </table>
       <br>
       <br>
       <br>
-      <input type="submit" onclick="window.location.href='" value="calculate" name="calculate" class="btn btn-info">
+      <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
+    <br>
     <div id="resultField">
-        {%if st %}
-            {% for line in stdout %}
+        {% for line in data['summary'] %}
                 {{ line }}
                 <br>
-            {% endfor %}
-        {% endif %}
+        {% endfor %}
     </div>
   </div>
 </div>
