@@ -5,7 +5,7 @@
 
 %Input: 
 %func = continous function 
-%xmin, xmax = endpoints for the interval of f(x) 
+%x0 = starting estimate  
 %sc = number of subintervals (Subinterval Count), defaults to 50
 
 
@@ -14,7 +14,7 @@
 %ul = Upper bound/Right bound for the interval
 %icount = number of iterations 
 
-function xv = incSearch(func, xmin,xmax, sc)
+function xv = incSearch(func, x0, sc)
 if nargin < 3, error('At least 3 arguments are required for this function'), end 
 if nargin <4, sc = 50; end 
 x = linspace(xmin, xmac, sc); 
