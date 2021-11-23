@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, abort, request
 from io import StringIO
 import sys
 import math
-from sympy import sympify, evalf, symbols
+from sympy import evalf, symbols, sympify
 
 from Methods.Python.busquedaIncremental import busqueda
 from Methods.Python.biseccion import biseccion

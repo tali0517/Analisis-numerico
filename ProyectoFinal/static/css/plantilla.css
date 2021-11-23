@@ -39,7 +39,7 @@ a:active{
 
 .expl{
     width: 500px;
-    height: 250px;
+    height: 200px;
     text-align: center;
     margin-left: 32%;
 }
@@ -78,7 +78,7 @@ a:active{
 
 .functionn{
     width:200px;
-    height: 150px;
+    height: 200px;
     border: 2px solid  black; 
     margin-left: 15%;
     padding-left: 10px;
@@ -111,6 +111,11 @@ label{
     margin-top: 0%;
     display: block;
     float:left;
+}
+
+#plot{
+    margin-top: 20px;
+    text-align: center;
 }
 
 #svg{
