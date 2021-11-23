@@ -14,24 +14,28 @@
         <li>Esteban Sierra</li>
     </ul>
 </div>
-<div class="functionbig">
-    <div class="parameters">
-        Parameters
+    <div class="functionbig">
+        <div class="parameters">
+            Parameters
+        </div>
+        <div class="functionn">
+            <form action="tali/form" method="POST">
+                <label>
+                    Please input your function f
+                    <input type="text" id="input" value="" name='fx'>
+                </label>
+                <label>
+                    Please input de first number of the domain
+                    <input type="number" id="xmin" name="a">
+                </label>
+                <label>
+                    Please input the last number of the domain
+                    <input type="number" id="xmax" name="b">
+                </label>
+                <label id="plot">
+                    <input type="submit"  value="Plot the function">
+                </label>
+            </form>
+        </div>
     </div>
-    <div class="functionn">
-        <form action="tali/form" method="POST">
-            <label>
-                Please input your function f
-                <input type="text" id="input" value="" name='fx'>
-            </label>
-            <label id="grids" name='grid'>
-                Activate grid
-                <input type="checkbox">
-            </label>
-            <label>
-                <input type="submit" id="plot" value="Plot the function">
-            </label>
-        </form>
-    </div>
-</div>
 {% endblock %}
