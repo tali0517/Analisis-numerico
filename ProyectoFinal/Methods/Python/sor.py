@@ -16,12 +16,17 @@ def sor(A, b, x0, w, tol, Nmax):
     if det == 0:
         print("Determinant of matrix is 0")
         return
+
+    diagonal = np.diagonal(A)
+    nozeros = np.count_nonzero(diagonal)
+
+    if nozeros != A.shape[0]:
+        print("There are zeros in the diagonal of the matrix 'A'")
+        return
+
     D = np.diag(np.diag(A))
     L = -np.tril(A)+D
     U = -np.triu(A)+D
-    #print("D\n",D)
-    #print("L\n",L)
-    #print("U\n",U)
     
     T = np.linalg.inv(D -(w*L)).dot((1-w)*D + w*U)
     C = w*np.linalg.inv(D- (w*L)).dot(b)

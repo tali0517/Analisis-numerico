@@ -4,6 +4,7 @@ import numpy as np
 from sustreg import sustreg
 
 def gausspl(A, b):
+    np.set_printoptions(precision=3)
     det = np.linalg.det(A)
 
     if det == 0:

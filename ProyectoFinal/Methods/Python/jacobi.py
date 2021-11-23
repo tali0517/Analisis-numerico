@@ -16,6 +16,14 @@ def jacobi(A, b, x0, tol, Nmax):
     if det == 0:
         print("Determinant of matrix is 0")
         return
+
+    diagonal = np.diagonal(A)
+    nozeros = np.count_nonzero(diagonal)
+
+    if nozeros != A.shape[0]:
+        print("There are zeros in the diagonal of the matrix 'A'")
+        return
+
     D = np.diag(np.diag(A))
     L = -np.tril(A)+D
     U = -np.triu(A)+D

@@ -1,7 +1,8 @@
 {% extends 'layout.html'%}
 {% block content %}
 <div class="container">
-  <div class="well well-lg">
+  <div class="well well-lg row">
+  <div>
     <h1 class="text-center">Jacobi</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Size: {{ data['matrix_size'] }}</h2>
@@ -33,11 +34,14 @@
       <br>
       <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
-    <div id="resultField">
+  </div>
+  <div class="column left">
+        <div id="resultField">
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
+      </div>
     </div>
   </div>
 </div>

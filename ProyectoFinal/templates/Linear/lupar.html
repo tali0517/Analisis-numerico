@@ -1,9 +1,10 @@
 {% extends 'layout.html'%}
 {% block content %}
 <div class="container">
-  <div class="well well-lg">
-    <h1 class="text-center">Direct Factorization LU - partial</h1>
+  <div class="well well-lg row">
+    <div class="column left">
     <form id="inputField" role="form" method='POST'>
+        <h1 class="text-center">Direct Factorization LU - partial</h1>
     <h2>Size: {{ data['matrix_size'] }}</h2>
     <a href="{{ url_for('alzate.lupar_route', array = data['matrix_size'] + 1) }}">Increase</a>
     <br>
@@ -22,11 +23,16 @@
       <br>
       <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
-    <div id="resultField">
-            {% for line in stdout %}
-                {{ line }}
-                <br>
-            {% endfor %}
+    </div>
+    <div class="column right">
+        <div id="resultField">
+            <pre>
+                {% for line in stdout %}
+                    {{ line }}
+                    <br>
+                {% endfor %}
+            </pre>
+        </div>
     </div>
   </div>
 </div>
