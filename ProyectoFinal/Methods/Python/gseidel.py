@@ -4,6 +4,13 @@ import numpy as np
 from sustreg import sustreg
 
 def gseidel(A, b, x0, tol, Nmax):
+    if Nmax < 0:
+        print("Number of iterations can not be less than 0")
+        return
+    
+    if tol < 0:
+        print("Tolerance can not be less than 0")
+        return
     det = np.linalg.det(A) # Determinant of matrix
     if det == 0:
         print("Determinant of matrix is 0")
