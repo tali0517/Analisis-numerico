@@ -6,9 +6,9 @@
     <h1 class="text-center">Simple Gaussian elimination</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Size: {{ data['matrix_size'] }}</h2>
-    <a href="{{ url_for('alzate.gausspl_route', array = data['matrix_size'] + 1) }}">Increase</a>
+    <button><a href="{{ url_for('alzate.gausspl_route', array = data['matrix_size'] + 1) }}">Increase</a></button>
     <br>
-    <a href="{{ url_for('alzate.gausspl_route', array = data['matrix_size'] - 1) }}">Decrease</a>
+    <button><a href="{{ url_for('alzate.gausspl_route', array = data['matrix_size'] - 1) }}">Decrease</a></button>
     <h2>A:</h2>
       {% for row in range(data['matrix_size'])%}
           {% for col in range(data['matrix_size'])%}
@@ -24,6 +24,17 @@
       <br>
       <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
+    <br>
+    <details>
+      <summary>Help?</summary>
+      <pre>
+          The input in the methods help you to be sure in the dimension of the matrix.
+
+          The determinant of the matrix cannot be 0.
+
+          The matrix cannot have a 0 on the diagonal, although the method is made in such a way that it does not stop.
+      </pre>
+    </details>
     </div>
     <div id="resultField" class="column right">
         <pre>
