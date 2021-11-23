@@ -100,7 +100,7 @@ def fixedpoint_route():
         x = symbols('x')
         return funct.evalf(subs={x: s})
 
-    def fung(s):
+    def fungion(s):
         x = symbols('x')
         return fung.evalf(subs={x: s})
 
@@ -116,7 +116,7 @@ def fixedpoint_route():
 
         stdout = StringIO()
         sys.stdout = stdout
-        x = puntofijo(funcion, fung, xini, nmax, tol)
+        x = puntofijo(funcion, fungion, xini, nmax, tol)
         result_stdout = stdout.getvalue()
         result_stdout = result_stdout.split('\n')
         return render_template('singleVariable/fixedpoint.html', x=x, stdout = result_stdout)

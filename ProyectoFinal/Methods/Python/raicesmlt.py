@@ -9,11 +9,9 @@ def raicesmlt(f, df, d2f, x0, Nmax, tol):
     dfant = df(xant)
     E = 1000
     i = 0
-
+    print("|{i:^3}|{xi:^16}|{fxm:^20}|{E:^10}|".format(i="i",xi="xi",fxm="f(xi)",E="E"))
     while i < Nmax and E > tol:
-        print(i, xant, fant, E)
-        #print("X{i} =".format(i=i), xant,"|","f(x{i}) =".format(i=i), fant,"|","Error =", E)
-        #print("X{i} = {xi:.16f} | f(x{i}) = {fant:.16f}| Error = {E:.1E}".format(i=i, xi=xant, fant=fant, E=E))
+        print("|{i:3g}|{xi:.16f}|{fxm:.16f}|{E:.1E}|".format(i=0, xi=xant, fxm=fant, E=E))
         if ((df(xant)**2 - fant*d2f(xant))) == 0:
             print("Error: division by zero")
             return

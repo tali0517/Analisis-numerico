@@ -4,8 +4,6 @@ import math
 
 
 def puntofijo(f, g, x0, Nmax, tol):
-    print(" i |  X")
-    print("----------------")
     xant = x0
     gant = g(xant)
     fant = f(xant)
@@ -24,7 +22,7 @@ def puntofijo(f, g, x0, Nmax, tol):
         count += 1
 
     if count == Nmax or E > tol:
-        print("El metodo no converge ocn los datos dado")
+        print("The method does not converge with the given arguments.")
     else:
         print("|{i:3g}| {xi:.16f} | {gxi:.16f} | {fxi:.16f} | {E:.1E} |".format(i=count, xi=xant, gxi=gant, fxi=fant,
                                                                                 E=E))
@@ -43,9 +41,10 @@ def funcionParcial(x):
     return 0.73232323*(x**2) - 1.21464646*x + 0.5
 
 def main():
-    #puntofijo(funcion, funciong, -0.5, 100, 1e-7)
-    puntofijo(funcionParcial, 0.5, 100, 1e-5)
+    puntofijo(funcion, funciong, -0.5, 100, 1e-7)
 
 
-if __name__ == '__main__':
+
+'''if __name__ == '__main__':
     main()
+'''

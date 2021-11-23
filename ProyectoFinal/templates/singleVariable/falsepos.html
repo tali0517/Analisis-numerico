@@ -72,7 +72,9 @@
 </style>
 <div class="container">
   <div class="well well-lg row">
+  <div class="column left">
     <h1 class="text-center">False Position</h1>
+       <p class="text-center">Note: there cannot be any discontinuity in the function. Interval ends must have different signs. Must be differentiable and have function values for 'A' and 'B'</p>
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
       <input type="text" name="function" step="any">
@@ -92,12 +94,32 @@
       <br>
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.falsepos_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
-    <div id="resultField">
+  </div>
+    <div id="resultField" class="column mid">
+                <br>
+                <br>
+        <pre>
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
+        </pre>
     </div>
+   <div class="column right">
+    <h1>Other One-Variable Methods</h1>
+    <a href="{{ url_for('alejandro.incsearch_route') }}"><button type="button" class="button button2 btn btn-primary">Incremental Search</button></a>
+    <br>
+    <a href="{{ url_for('alejandro.bisection_route') }}"><button type="button" class="button button5 btn btn-primary">Bisection</button></a>
+    <br>
+    <a href="{{ url_for('alejandro.fixedpoint_route') }}"><button type="button" class="button button1 btn btn-primary">Fixed Point</button></a>
+    <br>
+    <a href="{{ url_for('alejandro.newtonraphs_route') }}"><button type="button" class="button button5 btn btn-primary">Newton-Raphson method</button></a>
+    <br>
+    <a href="{{ url_for('alejandro.secant_route') }}"><button type="button" class="button button1 btn btn-primary">Secant method</button></a>
+    <br>
+    <a href="{{ url_for('alejandro.multiroots_route') }}"><button type="button" class="button button2 btn btn-primary">Multi-Roots method</button></a>
+    <br>
+  </div>
   </div>
 </div>
 {% endblock %}
