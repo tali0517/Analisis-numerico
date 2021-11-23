@@ -41,11 +41,21 @@
         <details>
           <summary>Help?</summary>
           <pre>
-              The input in the methods help you to be sure in the dimension of the matrix.
+ - In sor if w = 1 we is like Gauss-Seidel method.
 
-              The determinant of the matrix cannot be 0.
+ - In sor if w is between 0 and 1 we got sub-relaxation methods (used in non-convergent Gauss-Seidel systems).
 
-              The matrix cannot have a 0 on the diagonal, although the method is made in such a way that it does not stop.
+ - In sor if w is between 1 and 2 we got over-relaxation methods (used to "increase" the speed of some methods).
+
+ - The initial vector isn´t too important.
+
+ - The determinant of the matrix cannot be 0.
+
+ - The numbers of iterations must be positive.
+
+ - The tolerance must be positive.
+
+ - The matrix cannot should not have a 0 on the diagonal.
           </pre>
         </details> 
       </div>
