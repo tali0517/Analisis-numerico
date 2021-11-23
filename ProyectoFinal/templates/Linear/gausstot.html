@@ -1,7 +1,8 @@
 {% extends 'layout.html'%}
 {% block content %}
 <div class="container">
-  <div class="well well-lg">
+  <div class="well well-lg row">
+    <div class="column left">
     <h1 class="text-center">Gaussian elimination with total Pivot</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Size: {{ data['matrix_size'] }}</h2>
@@ -22,12 +23,17 @@
       <br>
       <input type="submit" value="calculate" name="calculate" class="btn btn-info">
     </form>
+    </div>
+    <div class="column right">
     <div id="resultField">
+        <pre>
             {% for line in stdout %}
                 {{ line }}
                 <br>
             {% endfor %}
+            </pre>
     </div>
+    <div>
   </div>
 </div>
 {% endblock %}
