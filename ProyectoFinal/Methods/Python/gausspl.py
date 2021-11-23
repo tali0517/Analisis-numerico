@@ -8,7 +8,7 @@ def gausspl(A, b):
     det = np.linalg.det(A)
 
     if det == 0:
-        print("Determinant of A is zero")
+        print("Error: Determinant of A is zero")
         return
 
     M = np.column_stack((A, b))
