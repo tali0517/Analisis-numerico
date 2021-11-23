@@ -12,9 +12,11 @@ def busqueda(func, xin, delta, Nmax):
     xact = xant + delta
     fact = func(xact)
     
-    i = 1 
+    i = 1
+    print(" {i:^3}| {a:^20}|{b:^20}".format(i="i",a="xant",b="xact"))
     for i in range(1, Nmax):
-        print(i, "- [a =",xant,"b =",xact,"]")
+        text = '{:3g} | {:.16f} | {:.16f}'
+        print(text.format(i, xant, xact))
         if (fant * fact) < 0:
             break
         else:
