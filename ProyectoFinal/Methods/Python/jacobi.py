@@ -4,10 +4,26 @@ import numpy as np
 from sustreg import sustreg
 
 def jacobi(A, b, x0, tol, Nmax):
+    if Nmax < 0:
+        print("Number of iterations can not be less than 0")
+        return
+    
+    if tol < 0:
+        print("Tolerance can not be less than 0")
+        return
+
     det = np.linalg.det(A) # Determinant of matrix
     if det == 0:
         print("Determinant of matrix is 0")
         return
+
+    diagonal = np.diagonal(A)
+    nozeros = np.count_nonzero(diagonal)
+
+    if nozeros != A.shape[0]:
+        print("There are zeros in the diagonal of the matrix 'A'")
+        return
+
     D = np.diag(np.diag(A))
     L = -np.tril(A)+D
     U = -np.triu(A)+D
@@ -76,7 +92,7 @@ def main():
                   [14, 5, -2, 30]))
     b = np.array([1, 1, 1, 1])
     x0 = np.array([0, 0, 0, 0])
-    jacobi(A, b, x0, 1e-7, 100)
+    jacobi(A, b, x0, -1e-7, 100)
 
 
 if __name__ == '__main__':

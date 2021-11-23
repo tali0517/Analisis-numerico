@@ -21,3 +21,4 @@ for col = 1:n - 1
         disp(newline);
     end
 end
+disp(ret)

@@ -3,10 +3,7 @@
 from sympy import *
 import math
 
-def secante(func, x0, x1, Nmax, tol):
-    x = Symbol('x')
-    f = lambdify(x, func)
-    #fDer1 = lambdify(x, func.diff(x))
+def secante(f, x0, x1, Nmax, tol):
 
     f0 = f(x0)
     f1 = f(x1)

@@ -4,8 +4,11 @@ import math
 
 def reglafalsa(func, a, b, Nmax, tol):
     if a > b:
-        print("'A' cannot be greather than 'B'")
+        print("'A' cannot be greater than 'B'")
         return
+
+    if a*b > 0:
+        print("Interval ends must have opposite signs.")
 
     fa = func(a)
     fb = func(b)
@@ -20,8 +23,8 @@ def reglafalsa(func, a, b, Nmax, tol):
     count = 1
     print("|{i:^3}|{a:^20}|{xm:^20}|{b:^20}|{fxm:^20}|{E:^10}|".format(i="i",a="a",xm="xm",b="b",fxm="f(xm)",E="E"))
     while (count < Nmax) and (E > tol):
-        print("|{i:3g}| {a:.16f} | {xm:.16f} | {b:.16f} | {fpm:.16f} | {E:.1E} |".format(i=count, a=a, xm=pm, b=b, fpm=fpm, E=E))
-        #print(count, " - (a =",a,"b =",b,")")
+        text = "|{i:3g}| {a:.16f} | {xm:.16f} | {b:.16f} | {fpm:.16f} | {E:.1E} |"
+        print(text.format(i=count, a=a, xm=pm, b=b, fpm=fpm, E=E))
         if (fa * fpm) < 0:
             b = pm
             fb = fpm
@@ -39,10 +42,7 @@ def reglafalsa(func, a, b, Nmax, tol):
         count += 1
 
     if count == Nmax or E > tol:
-        print("|{i:3g}| {a:.16f} | {xm:.16f} | {b:.16f} | {fpm:.16f} | {E:.1E} |".format(i=count, a=a, xm=pm, b=b, fpm=fpm, E=E))
-        print("El metodo no esta convergiendo")
-    else:
-        print("|{i:3g}| {a:.16f} | {xm:.16f} | {b:.16f} | {fpm:.16f} | {E:.1E} |".format(i=count, a=a, xm=pm, b=b, fpm=fpm, E=E))
+        print("The method is not converging")
 
 def funcion(x):
     #return math.exp(x) + math.sin(x)

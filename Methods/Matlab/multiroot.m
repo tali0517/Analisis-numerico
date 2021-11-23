@@ -15,7 +15,7 @@
 %icount = iteration counter 
 %err, error 
 
-function ret = multiroot(func, fprime, f2prime, x0, tol)
+function x0 = multiroot(func, fprime, f2prime, x0, tol)
 err = 10;
 icount = 1
 while abs(err) >tol

@@ -1,4 +1,4 @@
-#!/home/salzatec1/miniconda3/bin/python
+ #!/home/salzatec1/miniconda3/bin/python
 
 from sympy import *
 import math

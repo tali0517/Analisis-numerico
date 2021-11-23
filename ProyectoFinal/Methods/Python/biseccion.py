@@ -4,7 +4,7 @@ import math
 
 def biseccion(func, a, b, Nmax, tol):
     if a > b:
-        print("'A' cannot be greather than 'B'")
+        print("'A' cannot be greater than 'B'")
         return
 
     fa = func(a)

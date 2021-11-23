@@ -127,3 +127,23 @@ label{
     height: fit-content;
     width: fit-content;
 }
+.row {
+    display: flex;
+    position: relative;
+}
+
+.column {
+    padding: 20px;
+}
+
+.left {
+    flex: 1;
+}
+
+.mid {
+    flex:3;
+}
+
+.right{
+    flex:2;
+}
