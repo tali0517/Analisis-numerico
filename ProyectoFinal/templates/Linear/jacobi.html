@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
   <div class="well well-lg row">
-  <div>
+  <div class="column left">
     <h1 class="text-center">Jacobi</h1>
     <form id="inputField" role="form" method='POST'>
     <h2>Size: {{ data['matrix_size'] }}</h2>
@@ -51,7 +51,7 @@
           </pre>
         </details> 
   </div>
-  <div class="column left">
+  <div class="column right">
         <div id="resultField">
             {% for line in stdout %}
                 {{ line }}
