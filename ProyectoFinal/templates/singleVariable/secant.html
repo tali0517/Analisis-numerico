@@ -4,7 +4,7 @@
   <div class="well well-lg row">
   <div class="column left">
     <h1 class="text-center">Secant</h1>
-    <form id="inputField" role="form" method='POST'>
+    <form id="inputField" role="form" method='POST' class="onevar">
     <h2>Function</h2>
          <input type="text" name="function" step="any">
          <br>
@@ -23,6 +23,7 @@
          <br>
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.secant_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
+      <br>
       <details>
           <summary>Help?</summary>
  - There cannot be any discontinuity in the function, and it must be differentiable.

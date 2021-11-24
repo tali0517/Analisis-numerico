@@ -80,20 +80,15 @@ img {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-<<<<<<< HEAD
-    
-}
-
-=======
     padding-left: 10px;
     align-items: center;
 }
+
 .parameters{
     padding-bottom: 0;
     text-align:center;
-
 }
->>>>>>> f8c91069f03f2b614c4b61ebadde3012a522bb96
+
 .functionn{
     display: grid;
     width: 240px;
@@ -164,7 +159,6 @@ label{
 .right{
     flex:2;
 }
-<<<<<<< HEAD
 
 #xmin{
     display: grid;
@@ -186,5 +180,28 @@ label{
 #students{
     text-align: center;
 }
-=======
->>>>>>> f8c91069f03f2b614c4b61ebadde3012a522bb96
+
+.lineal input{
+  width: 10%;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.onevar input{
+  width: 80%;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+summary {
+    padding: 4px;
+    width: 200px;
+    background-color: #eeeeee;
+    border: none;
+    box-shadow: 1px 1px 2px #bbbbbb;
+    cursor: pointer;
+}

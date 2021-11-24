@@ -4,7 +4,7 @@
   <div class="well well-lg row">
     <div class="column left">
     <h1 class="text-center">Direct Factorization LU - simple</h1>
-    <form id="inputField" role="form" method='POST'>
+    <form id="inputField" role="form" method='POST' class="lineal">
     <h2>Size: {{ data['matrix_size'] }}</h2>
     <button><a href="{{ url_for('alzate.lusimpl_route', array = data['matrix_size'] + 1) }}">Increase</a></button>
     <br>
