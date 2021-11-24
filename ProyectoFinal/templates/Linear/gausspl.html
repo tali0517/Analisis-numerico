@@ -4,6 +4,16 @@
   <div class="well well-lg row">
   <div class="column left">
     <h1 class="text-center">Simple Gaussian elimination</h1>
+    <br>
+    <div class="container">
+        <a href="{{ url_for('alejandro.multiroots_route') }}"><button type="button"
+            class="button button3 btn btn-primary"><i class="fa fa-arrow-left"></i> Multiple
+            method</button></a>
+
+        <a href="{{ url_for('alzate.gausspar_route', array = 4) }}"><button type="button"
+            class="button button1 btn btn-primary">Gausspar <i
+              class="fa fa-arrow-right"></i></button></a>
+    </div>
     <form id="inputField" role="form" method='POST' class="lineal">
     <h2>Size: {{ data['matrix_size'] }}</h2>
     <button><a href="{{ url_for('alzate.gausspl_route', array = data['matrix_size'] + 1) }}">Increase</a></button>
