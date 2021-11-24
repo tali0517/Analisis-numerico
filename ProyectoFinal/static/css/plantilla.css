@@ -61,9 +61,7 @@ a:active{
 }
 .barnacle{
     margin: 5px;
-}
-img {
-    width: 80%;
+    max-height: 100%;
 }
 .parameters{
     text-align: center;
@@ -82,12 +80,14 @@ img {
     margin-right: auto;
     padding-left: 10px;
     align-items: center;
+    
 }
 .parameters{
     padding-bottom: 0;
     text-align:center;
 
 }
+
 .functionn{
     width: 240px;
     height: 220px;
@@ -96,6 +96,8 @@ img {
     padding-left: 10px;
     padding-bottom: 0;
 }
+
+
 
 form{
     margin:0px auto;
