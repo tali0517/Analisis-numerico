@@ -1,35 +1,34 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h1 class=title>Numeric analysis Final project</h1>
+<h1 class=title>Numeric Analysis: The Final Project</h1>
 <div class="expl">
-    this is a website in which you will be able touse a wide variety of methods to solve numerical
-    analysis problems. <br>
-
-    this page was made as part of the final project for the Numeric analysis course at EAFIT univeristy
-    by:
-    <ul id="students">
-        <li>Santiago Alzate</li>
-        <li> Alejandro Castaño</li>
-        <li>Sebastian Urrego</li>
-        <li>Esteban Sierra</li>
-    </ul>
+    This is a website in which you will be able to use a wide variety of methods to solve numerical
+    analysis problems.
 </div>
+<div class ="expl" id="helping">
+    If lost, go to the 'help' button in the top right corner, then feel free to
+    test out your functions with this function plotter!
+</div>
+<div class="flex-container">
     <div class="functionbig">
         <div class="parameters">
-            Parameters
+            Parameters to plot a graph!
         </div>
         <div class="functionn">
             <form action="tali/form" method="POST">
                 <label>
                     Please input your function f
+                    <br>
                     <input type="text" id="input" value="" name='fx'>
                 </label>
                 <label>
-                    Please input de first number of the domain
+                    Please input the start of the domain for the graph
+                    <br>
                     <input type="number" id="xmin" name="a">
                 </label>
                 <label>
-                    Please input the last number of the domain
+                    Please input the end of the domain.
+                    <br>
                     <input type="number" id="xmax" name="b">
                 </label>
                 <label id="plot">
@@ -38,4 +37,19 @@
             </form>
         </div>
     </div>
+    <div>
+        <img src="https://cdn.custom-cursor.com/cursors/spongebob_barnacle_boy_blue_glove_962.png" class="barnacle">
+    </div>
+</div>
+
+<div class="expl" id="madeby">
+This page was made as part of the final project for the Numeric Analysis course at EAFIT univeristy, 2021.
+    by:
+    <ul id="students">
+        <li>Santiago Alzate</li>
+        <li> Alejandro Castaño</li>
+        <li>Sebastian Urrego</li>
+        <li>Esteban Sierra</li>
+    </ul>
+</div>
 {% endblock %}

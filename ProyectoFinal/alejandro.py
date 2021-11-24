@@ -34,7 +34,11 @@ def incsearch_route():
         delta = float(request.form['delta'])
         nmax = int(request.form['nmax'])
 
-        funct = sympify(function)
+        try:
+            funct = sympify(function)
+        except Exception as e:
+            print('There was an error with the function ')
+            print(e.message, e.args)
 
         stdout = StringIO()
         sys.stdout = stdout
@@ -60,7 +64,11 @@ def bisection_route():
         nmax = int(request.form['nmax'])
         tol = float(request.form['tol'])
 
-        funct = sympify(function)
+        try:
+            funct = sympify(function)
+        except Exception as e:
+            print('There was an error with the function ')
+            print(e.message, e.args)
 
         stdout = StringIO()
         sys.stdout = stdout
@@ -78,13 +86,17 @@ def falsepos_route():
         return funct.evalf(subs={x: s})
 
     if request.method == 'POST':
-        function = request.form['function']
+        f = request.form['function']
         a = float(request.form['a'])
         b = float(request.form['b'])
         nmax = int(request.form['nmax'])
         tol = float(request.form['tol'])
 
-        funct = sympify(function)
+        try:
+            funct = sympify(f)
+        except Exception as e:
+            print('There was an error with the function ')
+            print(e.message, e.args)
 
         stdout = StringIO()
         sys.stdout = stdout
@@ -111,8 +123,17 @@ def fixedpoint_route():
         nmax = int(request.form['nmax'])
         tol = float(request.form['tol'])
 
-        funct = sympify(f)
-        fung = sympify(g)
+        try:
+            funct = sympify(f)
+        except Exception as e:
+            print('There was an error with the function \'f\'')
+            print(e.message, e.args)
+
+        try:
+            fung = sympify(g)
+        except Exception as e:
+            print('There was an error with the function \'g\'')
+            print(e.message, e.args)
 
         stdout = StringIO()
         sys.stdout = stdout
@@ -139,8 +160,17 @@ def newtonraphs_route():
         nmax = int(request.form['nmax'])
         tol = float(request.form['tol'])
 
-        funct = sympify(f)
-        functdx = sympify(fdx)
+        try:
+            funct = sympify(f)
+        except Exception as e:
+            print('There was an error with the function ')
+            print(e.message, e.args)
+
+        try:
+            functdx = sympify(fdx)
+        except Exception as e:
+            print('There was an error with the function\'s derivative ')
+            print(e.message, e.args)
 
         print(type(funct), type(functdx), type(xini), type(nmax), type(tol))
         stdout = StringIO()
@@ -165,7 +195,11 @@ def secant_route():
         nmax = int(request.form['nmax'])
         tol = float(request.form['tol'])
 
-        funct = sympify(f)
+        try:
+            funct = sympify(f)
+        except Exception as e:
+            print('There was an error with the function ')
+            print(e.message, e.args)
 
         stdout = StringIO()
         sys.stdout = stdout
@@ -197,10 +231,22 @@ def multiroots_route():
         x0 = float(request.form['x0'])
         nmax = int(request.form['nmax'])
         tol = float(request.form['tol'])
+        try:
+            funct = sympify(f)
+        except Exception as e:
+            print('There was an error with the function ')
+            print(e.message, e.args)
 
-        funct = sympify(f)
-        fundx = sympify(fdx)
-        fun2dx = sympify(f2dx)
+        try:
+            fundx = sympify(fdx)
+        except Exception as e:
+            print('There was an error with the function\'s first derivative')
+            print(e.message, e.args)
+        try:
+            fun2dx = sympify(f2dx)
+        except Exception as e:
+            print('There was an error with the function\'s second derivative')
+            print(e.message, e.args)
 
         stdout = StringIO()
         sys.stdout = stdout

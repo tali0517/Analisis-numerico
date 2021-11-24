@@ -4,7 +4,7 @@
   <div class="well well-lg row">
    <div class="column left">
     <h1 class="text-center">Bisection</h1>
-        <p class="text-center">Note: there cannot be any discontinuity in the function</p>
+
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
       <input type="text" name="function" step="any">
@@ -24,6 +24,17 @@
       <br>
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.bisection_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
+       <br>
+       <details>
+          <summary>Help?</summary>
+ - There cannot be any discontinuity in the function, and must be differentiable
+<br>
+ - Value for A must be less than the value of B, and these two must have opposite signs, and both values have to exist in the function.
+<br>
+ - Tolerance must be greater than 0.
+<br>
+ - The iteration must be positive.
+        </details>
    </div>
     <div id="resultField" class="column mid">
             <br>

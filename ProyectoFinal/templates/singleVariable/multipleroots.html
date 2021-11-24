@@ -4,7 +4,6 @@
   <div class="well well-lg row">
   <div class="column left">
     <h1 class="text-center">Multiple Roots </h1>
-    <p class="text-center">Note: there cannot be any discontinuity in the function, f(x) must have a second derivative.</p>
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
        <input type="text" name="function" step="any">
@@ -27,6 +26,16 @@
       <br>
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.multiroots_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
+      <details>
+          <summary>Help?</summary>
+ - There cannot be any discontinuity in the functions, and you should double check if they are the appropriate derivatives.
+<br>
+ - Note that convergence decreases or may stop if there is any division by zero.
+<br>
+ - Tolerance must be greater than 0.
+<br>
+ - The iteration must be positive.
+        </details>
   </div>
     <div id="resultField" class="column mid">
             <br>
