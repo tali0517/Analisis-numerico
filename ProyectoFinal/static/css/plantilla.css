@@ -61,7 +61,9 @@ a:active{
 }
 .barnacle{
     margin: 5px;
-    max-height: 100%;
+}
+img {
+    width: 80%;
 }
 .parameters{
     text-align: center;
@@ -80,14 +82,12 @@ a:active{
     margin-right: auto;
     padding-left: 10px;
     align-items: center;
-    
 }
 .parameters{
     padding-bottom: 0;
     text-align:center;
 
 }
-
 .functionn{
     width: 240px;
     height: 220px;
@@ -96,8 +96,6 @@ a:active{
     padding-left: 10px;
     padding-bottom: 0;
 }
-
-
 
 form{
     margin:0px auto;
@@ -158,4 +156,22 @@ label{
 
 .right{
     flex:2;
+}
+
+input, select, textarea{
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+summary {
+    padding: 4px;
+    width: 200px;
+    background-color: #eeeeee;
+    border: none;
+    box-shadow: 1px 1px 2px #bbbbbb;
+    cursor: pointer;
 }
