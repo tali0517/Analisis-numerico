@@ -32,3 +32,7 @@ def form2():
 def graph():
     data = {'title':'Function Plotter'}
     return render_template('graph/graph.html', data = data)
+
+@tali.route('tali/help')
+def help_route2():
+    return render_template("nav/help.html")
