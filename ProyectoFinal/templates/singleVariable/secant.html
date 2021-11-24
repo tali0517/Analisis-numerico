@@ -4,7 +4,6 @@
   <div class="well well-lg row">
   <div class="column left">
     <h1 class="text-center">Secant</h1>
-    <p class="text-center">Note: There cannot be any discontinuity in the function</p>
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
          <input type="text" name="function" step="any">
@@ -24,6 +23,16 @@
          <br>
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.secant_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
+      <details>
+          <summary>Help?</summary>
+ - There cannot be any discontinuity in the function, and it must be differentiable.
+<br>
+ - As with the first methods in this category, choosing the starting values close to the root will increase the efficiency for the method.
+<br>
+ - Tolerance must be greater than 0.
+<br>
+ - The iteration must be positive.
+        </details>
     </div>
     <div id="resultField" class="column mid">
             <br>

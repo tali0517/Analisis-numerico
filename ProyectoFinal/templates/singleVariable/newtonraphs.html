@@ -4,7 +4,6 @@
   <div class="well well-lg row">
       <div class="column left">
     <h1 class="text-center">Newton - Raphson Method</h1>
-          <p class="text-center">Note: If the derivative approaches zero, there is a chance for a multiple root.</p>
     <form id="inputField" role="form" method='POST'>
     <h2>Function</h2>
       <input type="text" name="function" step="any">
@@ -24,6 +23,18 @@
       <br>
       <input type="submit" onclick="window.location.href='{{ url_for( 'alejandro.incsearch_route') }}" value="calculate" name="calculate" class="btn btn-info">
     </form>
+          <details>
+          <summary>Help?</summary>
+ - There cannot be any discontinuity in the functions, and they must be differentiable.
+<br>
+ - A good initial value, is key for the method. (Try to close in on the root)
+<br>
+ - Tolerance must be greater than 0.
+<br>
+ - The iteration must be positive.
+<br>
+ - CAREFUL: If the function's derivative approaches zero, the method may be inefficient as it is possible to be a case of multiple root.
+        </details>
       </div>
     <div id="resultField" class="column mid">
             <br>

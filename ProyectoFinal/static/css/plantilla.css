@@ -35,20 +35,34 @@ a:active{
 }
 .title{
     text-align: center;
+    font-size: 80px;
+    margin: 10px;
 }
 
 .expl{
-    width: 500px;
-    height: 200px;
-    text-align: center;
-    margin-left: 32%;
+    font-size: 23px;
+    font-style: italic;
+    height: 55px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+#madeby{
+    font-style: normal;
+    position: absolute;
+    bottom: 220px;
+}
+#helping{
+    font-style: normal;
 }
 
 #students{
     text-decoration: none;
     list-style-type: none;
 }
-
+.barnacle{
+    margin: 5px;
+    max-height: 100%;
+}
 .parameters{
     text-align: center;
     font-weight: 1000;
@@ -56,11 +70,12 @@ a:active{
     width: 300px;
     height: fit-content;
 }
-
-
+.flex-container{
+    margin-top: 25px;
+    display: flex;
+}
 .functionbig{
-    width:200px;
-    height: 300px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 10px;
@@ -68,18 +83,15 @@ a:active{
     
 }
 .parameters{
-    width: 200px;
-    height: 2px;
     padding-bottom: 0;
-    margin-bottom: 8%;
     text-align:center;
 
 }
 
 .functionn{
-    width:200px;
-    height: 200px;
-    border: 2px solid  black; 
+    width: 240px;
+    height: 220px;
+    border: 2px solid  black;
     margin-left: 15%;
     padding-left: 10px;
     padding-bottom: 0;
