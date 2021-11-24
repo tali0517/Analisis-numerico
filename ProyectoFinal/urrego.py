@@ -31,9 +31,9 @@ def vandermonde_route(array):
         sys.stdout = stdout
         vandermonde(np.array(X),np.array(Y))
         result_stdout = stdout.getvalue()
-        result_stdout = result_stdout.split('\n')
+        result_stdout = result_stdout.strip().split('\n')
         data['summary'] = result_stdout
-        stdout.close()
+        sys.stdout.close()
 
 
     # Configuration of the input array
