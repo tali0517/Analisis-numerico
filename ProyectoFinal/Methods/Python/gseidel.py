@@ -34,6 +34,9 @@ def gseidel(A, b, x0, tol, Nmax):
     eig = np.max(np.abs(np.linalg.eig(T)[0]))
     print("Espectral radius:\n", eig)
     print()
+    if eig > 1:
+        print("Since the espectral radius is greather than 1 this method will not encounter a solution for this matrix")
+        return
     xant = x0
     E = 1000
     cont = 0

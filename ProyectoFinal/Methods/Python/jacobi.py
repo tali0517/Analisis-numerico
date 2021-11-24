@@ -28,25 +28,6 @@ def jacobi(A, b, x0, tol, Nmax):
     L = -np.tril(A)+D
     U = -np.triu(A)+D
 
-    #D = np.array(([0, 0, 100, 400],
-    #              [0, -100, 300, -35],
-    #              [100, 300, 200, 0],
-    #              [400, -35, 0, 0]))
-    #print("D:\n", D)
-    #E = np.array(([300, 6, 0, 0],
-    #              [6, 0, 0, 0],
-    #              [0, 0, 0, 14],
-    #              [0, 0, 14, 300]))
-    #print("E:\n", E)
-    #T = np.linalg.inv(D).dot(E)
-    #print("T:\n", T)
-    #eig = np.max(np.abs(np.linalg.eig(T)[0]))
-    #print("Radio espectral de T:", eig)
-    #return
-    #print("D\n",D)
-    #print("L\n",L)
-    #print("U\n",U)
-    
     T = np.linalg.inv(D).dot(L+U)
     C = np.linalg.inv(D).dot(b)
     print("T:\n", T)
@@ -54,6 +35,9 @@ def jacobi(A, b, x0, tol, Nmax):
     eig = np.max(np.abs(np.linalg.eig(T)[0]))
     print("Espectral radius:\n", eig)
     print()
+    if eig > 1:
+        print("Since the espectral radius is greather than 1 this method will not encounter a solution for this matrix")
+        return
     xant = x0
     E = 1000
     cont = 0
