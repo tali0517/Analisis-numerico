@@ -61,13 +61,13 @@ a:active{
 }
 .barnacle{
     margin: 5px;
-    max-height: 100%;
+}
+img {
+    width: 80%;
 }
 .parameters{
     text-align: center;
     font-weight: 1000;
-    margin-left: 15%;
-    width: 300px;
     height: fit-content;
 }
 .flex-container{
@@ -75,29 +75,34 @@ a:active{
     display: flex;
 }
 .functionbig{
+    width: 250px;
+    height: 200px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+<<<<<<< HEAD
+    
+}
+
+=======
     padding-left: 10px;
     align-items: center;
-    
 }
 .parameters{
     padding-bottom: 0;
     text-align:center;
 
 }
-
+>>>>>>> f8c91069f03f2b614c4b61ebadde3012a522bb96
 .functionn{
+    display: grid;
     width: 240px;
     height: 220px;
     border: 2px solid  black;
-    margin-left: 15%;
-    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
     padding-bottom: 0;
 }
-
-
 
 form{
     margin:0px auto;
@@ -159,3 +164,27 @@ label{
 .right{
     flex:2;
 }
+<<<<<<< HEAD
+
+#xmin{
+    display: grid;
+    text-align: center;
+    margin-left: 35px;
+}
+
+#xmax{
+    display: grid;
+    text-align: center;
+    margin-left: 35px;
+}
+.details{
+    height: fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+#students{
+    text-align: center;
+}
+=======
+>>>>>>> f8c91069f03f2b614c4b61ebadde3012a522bb96

@@ -14,7 +14,7 @@
             <form action="form" method="POST">
                 <label>
                     Please input your function f
-                    <input type="text" id="input" value="" name='fx'>
+                    <input type="text" id="input1" value="" name='fx'>
                 </label>
                 <label>
                     Please input de first number of the domain
@@ -28,6 +28,20 @@
                     <input type="submit" id="plot" value="Plot the function">
                 </label>
             </form>
+
+        </div>
+        <br>
+        <div class="details">
+            <details>
+              <summary>Help?</summary>
+              Please be adviced:
+              <br>
+              -The firts number of the domain must be bigger than the second
+              <br>
+              -You must use the python language in order to make the graph work.
+              <br>
+              If you have any doubt please look in the <a href="{{url_for('tali.help_route2')}}" target="_BLANK"> help</a> page for more information
+            </details>
         </div>
     </div>
     <br>
